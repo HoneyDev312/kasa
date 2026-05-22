@@ -1,0 +1,27 @@
+.logo {
+  display: inline-flex;
+  align-items: center;
+}
+
+.image {
+  width: auto;
+  height: 36px;
+}
+
+.mark .image {
+  height: 32px;
+}
+
+.full .image {
+  height: 36px;
+}
+
+@media (max-width: 680px) {
+  .full .image {
+    height: 30px;
+  }
+
+  .mark .image {
+    height: 28px;
+  }
+}
