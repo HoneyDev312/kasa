@@ -1,6 +1,6 @@
 export default function Home() {
   return (
-    <section className="container">
+    <section>
       <h1>Kasa</h1>
     </section>
   );

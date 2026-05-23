@@ -1,0 +1,142 @@
+.header {
+  display: flex;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  padding-block: 20px;
+  justify-content: center;
+  background-color: transparent;
+}
+
+.inner {
+  display: flex;
+  width: 782px;
+  min-height: 56px;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  border-radius: var(--radius-md);
+  background-color: var(--color-white);
+  box-shadow: var(--shadow-header);
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+  color: var(--color-text-primary);
+  font-size: 18px;
+  font-weight: 400;
+  white-space: nowrap;
+}
+
+.link {
+  transition: color var(--transition-base);
+}
+
+.link:hover {
+  color: var(--color-primary);
+}
+
+.actions {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  color: var(--color-primary);
+  font-size: 18px;
+  font-weight: 400;
+  white-space: nowrap;
+}
+
+.addLink {
+  transition: color var(--transition-base);
+}
+
+.addLink:hover,
+.iconLink:hover,
+.messageLink:hover {
+  color: var(--color-primary-dark);
+}
+
+.iconLink,
+.messageLink {
+  display: inline-grid;
+  width: 16px;
+  height: 16px;
+  place-items: center;
+  color: var(--color-text-primary);
+  transition: opacity var(--transition-base);
+}
+
+.separator {
+  width: 2px;
+  height: 8px;
+  border-radius: 999px;
+  background: var(--color-primary);
+}
+
+.iconLink:hover,
+.messageLink:hover {
+  opacity: 0.7;
+}
+
+.menuButton {
+  display: none;
+  width: 36px;
+  height: 36px;
+  place-items: center;
+  color: var(--color-text-primary);
+}
+
+.menuIcon,
+.menuIcon::before,
+.menuIcon::after {
+  display: block;
+  width: 18px;
+  height: 2px;
+  border-radius: 999px;
+  background: currentColor;
+}
+
+.menuIcon {
+  position: relative;
+}
+
+.menuIcon::before,
+.menuIcon::after {
+  content: "";
+  position: absolute;
+  right: 0;
+}
+
+.menuIcon::before {
+  top: -6px;
+}
+
+.menuIcon::after {
+  top: 6px;
+  width: 13px;
+}
+
+@media (max-width: 760px) {
+  .header {
+    padding-block: 12px;
+  }
+
+  .inner {
+    width: calc(100% - 24px);
+    max-width: none;
+    min-height: 56px;
+    justify-content: space-between;
+    padding: 8px 16px;
+  }
+
+  .nav,
+  .actions {
+    display: none;
+  }
+
+  .menuButton {
+    display: grid;
+  }
+}

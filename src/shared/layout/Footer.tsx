@@ -1,4 +1,4 @@
-import { Logo } from "@/components/shared/Logo";
+import { Logo } from "@/shared/Logo";
 import styles from "./Footer.module.css";
 
 export function Footer() {
