@@ -3,25 +3,26 @@
   align-items: center;
 }
 
-.image {
+.lite .image {
+  height: 52px;
   width: auto;
-  height: 36px;
-}
-
-.mark .image {
-  height: 32px;
 }
 
 .full .image {
-  height: 36px;
+  height: 40px;
+  width: auto;
+}
+
+.mobileImage {
+  display: none;
 }
 
 @media (max-width: 680px) {
-  .full .image {
-    height: 30px;
+  .responsive .desktopImage {
+    display: none;
   }
 
-  .mark .image {
-    height: 28px;
+  .responsive .mobileImage {
+    display: block;
   }
 }

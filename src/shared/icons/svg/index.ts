@@ -1,8 +1,8 @@
-export { BackIcon } from "./BackIcon";
-export { CloseIcon } from "./CloseIcon";
-export { DeleteIcon } from "./DeleteIcon";
-export { FavorisIcon } from "./FavorisIcon";
-export { LocalisationIcon } from "./LocalisationIcon";
-export { MessageIcon } from "./MessageIcon";
-export { PlusIcon } from "./PlusIcon";
-export { SendIcon } from "./SendIcon";
+export { backIcon } from "./BackIcon";
+export { closeIcon } from "./CloseIcon";
+export { deleteIcon } from "./DeleteIcon";
+export { favorisIcon } from "./FavorisIcon";
+export { localisationIcon } from "./LocalisationIcon";
+export { messageIcon } from "./MessageIcon";
+export { plusIcon } from "./PlusIcon";
+export { sendIcon } from "./SendIcon";

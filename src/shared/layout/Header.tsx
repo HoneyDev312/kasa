@@ -2,6 +2,7 @@ import Link from "next/link";
 import { Icon } from "@/shared";
 import { Logo } from "@/shared/Logo";
 import styles from "./Header.module.css";
+import { Typography } from "../Typography";
 
 const navigation = [
   { href: "/", label: "Accueil" },
@@ -11,11 +12,11 @@ const navigation = [
 export function Header() {
   return (
     <header className={styles.header}>
-      <div className={styles.inner}>
+      <div className={styles.container}>
         <nav className={styles.nav} aria-label="Navigation principale">
           {navigation.map((item) => (
             <Link className={styles.link} href={item.href} key={item.href}>
-              {item.label}
+              <Typography variant="navLink">{item.label}</Typography>
             </Link>
           ))}
         </nav>
@@ -24,7 +25,9 @@ export function Header() {
 
         <div className={styles.actions}>
           <Link className={styles.addLink} href="/logements/nouveau">
-            +Ajouter un logement
+            <Typography variant="navLink" color="primary">
+              +Ajouter un logement
+            </Typography>
           </Link>
           <Link
             className={styles.iconLink}

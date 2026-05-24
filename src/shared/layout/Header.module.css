@@ -8,13 +8,13 @@
   background-color: transparent;
 }
 
-.inner {
+.container {
   display: flex;
   width: 782px;
   min-height: 56px;
   align-items: center;
   justify-content: center;
-  gap: 20px;
+  gap: var(--space-6);
   border-radius: var(--radius-md);
   background-color: var(--color-white);
   box-shadow: var(--shadow-header);
@@ -31,7 +31,7 @@
 }
 
 .link {
-  transition: color var(--transition-base);
+  transition: color var(--color-primary-soft);
 }
 
 .link:hover {
@@ -41,15 +41,13 @@
 .actions {
   display: flex;
   align-items: center;
-  gap: 16px;
-  color: var(--color-primary);
-  font-size: 18px;
-  font-weight: 400;
+  gap: var(--space-2);
   white-space: nowrap;
 }
 
 .addLink {
-  transition: color var(--transition-base);
+  margin-right: var(--space-3);
+  transition: color var(--color-primary-soft);
 }
 
 .addLink:hover,
@@ -61,8 +59,6 @@
 .iconLink,
 .messageLink {
   display: inline-grid;
-  width: 16px;
-  height: 16px;
   place-items: center;
   color: var(--color-text-primary);
   transition: opacity var(--transition-base);
@@ -123,7 +119,7 @@
     padding-block: 12px;
   }
 
-  .inner {
+  .container {
     width: calc(100% - 24px);
     max-width: none;
     min-height: 56px;

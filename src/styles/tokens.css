@@ -12,15 +12,32 @@
   --color-text-primary: #0d0d0d;
   --color-text-secondary: #565656;
 
-  --font-sans: Inter, Arial, Helvetica, sans-serif;
+  --font-main: Inter, Arial, Helvetica, sans-serif;
 
   --container-width: 1440px;
   --container-padding: clamp(1rem, 4vw, 2rem);
+
+  --text-xs: 12px;
+  --text-sm: 14px;
+  --text-md: 16px;
+  --text-lg: 18px;
+  --text-xl: 24px;
+  --text-xxl: 32px;
+
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 24px;
+  --space-6: 32px;
+  --space-7: 48px;
+  --space-8: 64px;
+  --space-9: 80px;
+  --space-10: 96px;
 
   --radius-xs: 4px;
   --radius-sm: 6px;
   --radius-md: 10px;
 
   --shadow-header: 0 4px 4px rgb(182 182 182 / 25%);
-  --transition-base: 180ms ease;
 }

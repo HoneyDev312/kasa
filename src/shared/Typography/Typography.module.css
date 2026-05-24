@@ -1,0 +1,57 @@
+.typography {
+  font-family: var(--font-main);
+  background-color: inherit;
+}
+
+.h1 {
+  font-size: var(--text-xxl);
+  line-height: 100%;
+  color: var(--color-text-brand);
+  font-weight: 700;
+}
+
+.regular {
+  font-size: var(--text-sm);
+  line-height: 143%;
+  font-weight: 400;
+}
+
+.medium {
+  font-size: var(--text-xs);
+  line-height: 143%;
+  font-weight: 500;
+}
+
+.navLink {
+  font-size: var(--text-sm);
+  line-height: 143%;
+  font-weight: 400;
+}
+
+.regular {
+  font-weight: 400;
+}
+
+.medium {
+  font-weight: 500;
+}
+
+.semibold {
+  font-weight: 600;
+}
+
+.bold {
+  font-weight: 700;
+}
+
+.primary {
+  color: var(--color-primary);
+}
+
+.dark {
+  color: var(--color-text-secondary);
+}
+
+.gray {
+  color: var(--ccolor-gray-dark);
+}
