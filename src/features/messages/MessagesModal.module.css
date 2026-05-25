@@ -1,0 +1,41 @@
+.overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 20;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgb(13 13 13 / 45%);
+  padding: var(--space-24);
+}
+
+.modal {
+  width: min(100%, 58rem);
+  max-height: min(42rem, calc(100vh - var(--space-48)));
+  overflow: auto;
+  border-radius: var(--radius-md);
+  background: var(--color-white);
+  padding: var(--space-24);
+  box-shadow: 0 var(--space-16) var(--space-48) rgb(13 13 13 / 18%);
+}
+
+.modalHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-16);
+  margin-bottom: var(--space-24);
+}
+
+.modalTitle {
+  color: var(--color-text-primary);
+  font-size: var(--text-xxl);
+  font-weight: 700;
+  line-height: 1;
+}
+
+.closeButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}

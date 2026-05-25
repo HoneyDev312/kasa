@@ -1,0 +1,26 @@
+.desktopView {
+  display: grid;
+  grid-template-columns: minmax(15rem, 0.9fr) minmax(0, 1.4fr);
+  min-height: 24rem;
+  overflow: hidden;
+  border: var(--space-1) solid var(--color-border);
+  border-radius: var(--radius-md);
+}
+
+.sidebar {
+  overflow: auto;
+  border-right: var(--space-1) solid var(--color-border);
+  background: var(--color-surface-muted);
+  padding: var(--space-16);
+}
+
+.conversationPanel {
+  overflow: auto;
+  padding: var(--space-24);
+}
+
+.emptyState {
+  color: var(--color-text-secondary);
+  font-size: var(--text-sm);
+  line-height: 1.5;
+}

@@ -1,7 +1,8 @@
 "use client";
 
-import { useState } from "react";
+import { useState, type MouseEvent } from "react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { Icon, Link as ButtonLink } from "@/shared";
 import { Logo } from "@/shared/Logo";
 import styles from "./Header.module.css";
@@ -14,8 +15,14 @@ const navigation = [
 
 export function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const pathname = usePathname();
 
   const closeMenu = () => setIsMenuOpen(false);
+  const openMessagesPage = (event: MouseEvent<HTMLAnchorElement>) => {
+    event.preventDefault();
+    closeMenu();
+    window.location.assign("/messages");
+  };
 
   return (
     <header className={styles.header}>
@@ -46,7 +53,7 @@ export function Header() {
           <span className={styles.separator} aria-hidden="true" />
           <Link
             className={styles.messageLink}
-            href="/messages"
+            href={{ pathname: "/messages", query: { from: pathname } }}
             aria-label="Messages"
           >
             <Icon name="message" />
@@ -87,7 +94,7 @@ export function Header() {
           <Link
             className={styles.mobileLink}
             href="/messages"
-            onClick={closeMenu}
+            onClick={openMessagesPage}
           >
             <Typography variant="mobileLink">Messagerie</Typography>
           </Link>
