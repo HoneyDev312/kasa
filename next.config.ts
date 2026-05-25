@@ -1,7 +1,14 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  /* config options here */
+  images: {
+    remotePatterns: [
+      {
+        hostname: "s3-eu-west-1.amazonaws.com",
+        protocol: "https",
+      },
+    ],
+  },
   reactCompiler: true,
 };
 

@@ -92,7 +92,7 @@ async function getSessionToken() {
     return undefined;
   }
 
-  const { getAuthToken } = await import("@/features/auth/auth.session");
+  const { getAuthToken } = await import("@/features/auth");
 
   return getAuthToken();
 }

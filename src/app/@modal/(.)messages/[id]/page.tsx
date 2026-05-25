@@ -1,7 +1,9 @@
-import { ConversationDetail } from "@/features/messages/components/ConversationDetail";
-import { MessagesDesktopView } from "@/features/messages/components/MessagesDesktopView";
-import { MessagesModal } from "@/features/messages/components/MessagesModal";
-import { getModalCloseHref } from "@/features/messages/messages.helpers";
+import {
+  ConversationDetail,
+  getModalCloseHref,
+  MessagesDesktopView,
+  MessagesModal,
+} from "@/features/messages";
 
 type MessageModalPageProps = {
   params: Promise<{

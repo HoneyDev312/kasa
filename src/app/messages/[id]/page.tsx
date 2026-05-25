@@ -1,4 +1,4 @@
-import { ConversationDetail } from "@/features/messages/components/ConversationDetail";
+import { ConversationDetail } from "@/features/messages";
 import styles from "@/features/messages/components/MessagesPage.module.css";
 
 type MessagePageProps = {

@@ -1,4 +1,10 @@
 .container {
-  height: 100%;
-  padding-top: var(--space-56);
+  padding: var(--space-56) var(--container-padding);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(18rem, 1fr));
+  gap: var(--space-32);
+  justify-items: center;
 }

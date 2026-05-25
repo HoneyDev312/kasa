@@ -1,7 +1,7 @@
 import Image from "next/image";
 import NextLink from "next/link";
 import { Icon, Typography } from "@/shared";
-import type { PropertySummary } from "@/types/property";
+import type { PropertySummary } from "../properties.types";
 import styles from "./PropertyCard.module.css";
 
 type PropertyCardProps = {

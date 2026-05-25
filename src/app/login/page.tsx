@@ -1,4 +1,4 @@
-import { LoginForm } from "@/features/auth/components/LoginForm";
+import { LoginForm } from "@/features/auth";
 import { Typography } from "@/shared";
 import styles from "./page.module.css";
 

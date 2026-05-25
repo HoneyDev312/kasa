@@ -1,4 +1,4 @@
-import { ConversationList } from "@/features/messages/components/ConversationList";
+import { ConversationList } from "@/features/messages";
 import styles from "@/features/messages/components/MessagesPage.module.css";
 
 export default function Messages() {
