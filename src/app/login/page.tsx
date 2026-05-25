@@ -1,5 +1,5 @@
 import NextLink from "next/link";
-import { Button, Typography } from "@/shared";
+import { Button, Input, Typography } from "@/shared";
 import styles from "./page.module.css";
 
 export default function Login() {
@@ -17,31 +17,21 @@ export default function Login() {
         </div>
 
         <form className={styles.form}>
-          <div className={styles.field}>
-            <Typography as="label" htmlFor="email" variant="label">
-              Adresse email
-            </Typography>
-            <input
-              className={styles.input}
-              id="email"
-              name="email"
-              type="email"
-              autoComplete="email"
-            />
-          </div>
+          <Input
+            id="email"
+            label="Adresse email"
+            name="email"
+            type="email"
+            autoComplete="email"
+          />
 
-          <div className={styles.field}>
-            <Typography as="label" htmlFor="password" variant="label">
-              Mot de passe
-            </Typography>
-            <input
-              className={styles.input}
-              id="password"
-              name="password"
-              type="password"
-              autoComplete="current-password"
-            />
-          </div>
+          <Input
+            id="password"
+            label="Mot de passe"
+            name="password"
+            type="password"
+            autoComplete="current-password"
+          />
 
           <Button className={styles.submitButton} type="submit">
             Se connecter

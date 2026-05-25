@@ -35,34 +35,6 @@
   margin: var(--space-0) auto;
 }
 
-.field {
-  display: grid;
-  gap: var(--space-8);
-}
-
-.label {
-  color: var(--color-text-primary);
-  font-size: var(--text-sm);
-  font-weight: 500;
-  line-height: 1.4;
-}
-
-.input {
-  width: 100%;
-  min-height: var(--space-40);
-  border: var(--space-1) solid var(--color-gray-light);
-  border-radius: var(--radius-xs);
-  background: var(--color-white);
-  color: var(--color-text-primary);
-  padding: var(--space-0) var(--space-16);
-  font: inherit;
-}
-
-.input:focus {
-  border-color: var(--color-primary);
-  outline: none;
-}
-
 .submitButton {
   width: min(100%, 14rem);
   margin: var(--space-16) auto var(--space-0);
