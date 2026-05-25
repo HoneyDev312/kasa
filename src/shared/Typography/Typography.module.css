@@ -1,42 +1,43 @@
 .typography {
   font-family: var(--font-main);
   background-color: inherit;
+  line-height: 143%;
 }
 
 .h1 {
+  color: var(--color-primary);
   font-size: var(--text-xxl);
-  line-height: 100%;
-  color: var(--color-text-brand);
   font-weight: 700;
 }
 
 .regular {
   font-size: var(--text-sm);
-  line-height: 143%;
   font-weight: 400;
 }
 
 .medium {
   font-size: var(--text-xs);
-  line-height: 143%;
   font-weight: 500;
 }
 
 .navLink {
   font-size: var(--text-sm);
-  line-height: 143%;
   font-weight: 400;
 }
 
 .mobileLink {
   font-size: var(--text-xl);
-  line-height: 143%;
   font-weight: 400;
 }
 
 .button {
   font-size: var(--text-sm);
-  line-height: 143%;
+  font-weight: 500;
+}
+
+.label {
+  color: var(--color-text-primary);
+  font-size: var(--text-sm);
   font-weight: 500;
 }
 
@@ -66,4 +67,10 @@
 
 .gray {
   color: var(--ccolor-gray-dark);
+}
+
+@media (max-width: 47.5rem) {
+  .h1 {
+    font-size: var(--text-xl);
+  }
 }
