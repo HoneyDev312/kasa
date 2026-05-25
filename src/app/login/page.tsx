@@ -1,5 +1,5 @@
-import NextLink from "next/link";
-import { Button, Input, Typography } from "@/shared";
+import { LoginForm } from "@/features/auth/components/LoginForm";
+import { Typography } from "@/shared";
 import styles from "./page.module.css";
 
 export default function Login() {
@@ -16,46 +16,7 @@ export default function Login() {
           </Typography>
         </div>
 
-        <form className={styles.form}>
-          <Input
-            id="email"
-            label="Adresse email"
-            name="email"
-            type="email"
-            autoComplete="email"
-          />
-
-          <Input
-            id="password"
-            label="Mot de passe"
-            name="password"
-            type="password"
-            autoComplete="current-password"
-          />
-
-          <Button className={styles.submitButton} type="submit">
-            Se connecter
-          </Button>
-        </form>
-
-        <div className={styles.footerLinks}>
-          <NextLink href="/login">
-            <Typography variant="regular" color="primary">
-              Mot de passe oublie
-            </Typography>
-          </NextLink>
-        </div>
-
-        <Typography
-          className={styles.registerText}
-          variant="regular"
-          color="primary"
-        >
-          Pas encore de compte ?{" "}
-          <NextLink className={styles.inlineLink} href="/register">
-            Inscrivez-vous
-          </NextLink>
-        </Typography>
+        <LoginForm />
       </div>
     </section>
   );

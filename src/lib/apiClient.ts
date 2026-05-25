@@ -88,8 +88,13 @@ function isDataResponse<T>(payload: unknown): payload is { data: T } {
 }
 
 async function getSessionToken() {
-  // À compléter quand la session front sera en place.
-  return undefined;
+  if (typeof window !== "undefined") {
+    return undefined;
+  }
+
+  const { getAuthToken } = await import("@/features/auth/auth.session");
+
+  return getAuthToken();
 }
 
 export const apiClient = {
