@@ -1,5 +1,5 @@
-import { ConversationDetail } from "@/features/messages/ConversationDetail";
-import styles from "@/features/messages/MessagesPage.module.css";
+import { ConversationDetail } from "@/features/messages/components/ConversationDetail";
+import styles from "@/features/messages/components/MessagesPage.module.css";
 
 type MessagePageProps = {
   params: Promise<{

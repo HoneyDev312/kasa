@@ -1,6 +1,6 @@
-import { getModalCloseHref } from "@/features/messages/getModalCloseHref";
-import { MessagesDesktopView } from "@/features/messages/MessagesDesktopView";
-import { MessagesModal } from "@/features/messages/MessagesModal";
+import { MessagesDesktopView } from "@/features/messages/components/MessagesDesktopView";
+import { MessagesModal } from "@/features/messages/components/MessagesModal";
+import { getModalCloseHref } from "@/features/messages/messages.helpers";
 
 type MessagesModalPageProps = {
   searchParams: Promise<{
