@@ -1,31 +1,32 @@
+import NextLink from "next/link";
 import type { MouseEventHandler, ReactNode } from "react";
 import styles from "./Button.module.css";
 import { Typography } from "./Typography";
 
-type ButtonVariant = "primary" | "ghost";
+type LinkVariant = "primary" | "ghost";
 
-type ButtonProps = {
+type LinkProps = {
   children: ReactNode;
   className?: string;
-  onClick?: MouseEventHandler<HTMLButtonElement>;
-  type?: "button" | "submit" | "reset";
-  variant?: ButtonVariant;
+  href: string;
+  onClick?: MouseEventHandler<HTMLAnchorElement>;
+  variant?: LinkVariant;
 };
 
-export function Button({
+export function Link({
   children,
   className = "",
+  href,
   onClick,
-  type = "button",
   variant = "primary",
-}: ButtonProps) {
+}: LinkProps) {
   const classNames = [styles.button, styles[variant], className]
     .filter(Boolean)
     .join(" ");
 
   return (
-    <button className={classNames} onClick={onClick} type={type}>
+    <NextLink className={classNames} href={href} onClick={onClick}>
       <Typography variant="button">{children}</Typography>
-    </button>
+    </NextLink>
   );
 }

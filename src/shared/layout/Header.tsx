@@ -2,14 +2,14 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import { Icon, Button } from "@/shared";
+import { Icon, Link as ButtonLink } from "@/shared";
 import { Logo } from "@/shared/Logo";
 import styles from "./Header.module.css";
 import { Typography } from "../Typography";
 
 const navigation = [
   { href: "/", label: "Accueil" },
-  { href: "/a-propos", label: "A propos" },
+  { href: "/about", label: "About" },
 ];
 
 export function Header() {
@@ -31,15 +31,15 @@ export function Header() {
         <Logo />
 
         <div className={styles.actions}>
-          <Link className={styles.addLink} href="/logements/nouveau">
+          <Link className={styles.addLink} href="/add-anounce">
             <Typography variant="navLink" color="primary">
               +Ajouter un logement
             </Typography>
           </Link>
           <Link
             className={styles.iconLink}
-            href="/favoris"
-            aria-label="Favoris"
+            href="/favorites"
+            aria-label="Favorites"
           >
             <Icon name="favoris" />
           </Link>
@@ -93,14 +93,18 @@ export function Header() {
           </Link>
           <Link
             className={styles.mobileLink}
-            href="/favoris"
+            href="/favorites"
             onClick={closeMenu}
           >
-            <Typography variant="mobileLink">Favoris</Typography>
+            <Typography variant="mobileLink">Favorites</Typography>
           </Link>
-          <Button className={styles.mobileAddLink} onClick={() => {}}>
+          <ButtonLink
+            className={styles.mobileAddLink}
+            href="/add-anounce"
+            onClick={closeMenu}
+          >
             Ajouter un logement
-          </Button>
+          </ButtonLink>
         </nav>
       </div>
     </header>

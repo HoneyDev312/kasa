@@ -1,0 +1,12 @@
+.container {
+  height: 100%;
+  padding-top: var(--space-56);
+  padding-inline: var(--container-padding);
+}
+
+.title {
+  color: var(--color-text-primary);
+  font-size: var(--text-xxl);
+  font-weight: 700;
+  line-height: 1;
+}
