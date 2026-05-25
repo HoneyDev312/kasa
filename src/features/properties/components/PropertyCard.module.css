@@ -1,0 +1,63 @@
+.card {
+  position: relative;
+  overflow: hidden;
+  width: min(100%, 22.1875rem);
+  border: var(--space-1) solid var(--color-border);
+  border-radius: var(--radius-xs);
+  background: var(--color-white);
+}
+
+.link {
+  display: block;
+}
+
+.media {
+  position: relative;
+  aspect-ratio: 355 / 330;
+  overflow: hidden;
+  background: var(--color-surface-muted);
+}
+
+.image {
+  object-fit: cover;
+}
+
+.favoriteButton {
+  position: absolute;
+  top: var(--space-16);
+  right: var(--space-16);
+  display: inline-grid;
+  width: var(--space-32);
+  height: var(--space-32);
+  place-items: center;
+  border-radius: var(--radius-xs);
+  background: var(--color-white);
+  color: var(--color-text-secondary);
+  box-shadow: var(--shadow-header);
+}
+
+.content {
+  display: grid;
+  min-height: 13.75rem;
+  grid-template-rows: auto auto 1fr;
+  padding: var(--space-20) var(--space-24) var(--space-24);
+}
+
+.title {
+  color: var(--color-text-primary);
+  font-weight: 700;
+}
+
+.location {
+  margin-top: var(--space-8);
+  color: var(--color-text-secondary);
+}
+
+.price {
+  align-self: end;
+  color: var(--color-text-primary);
+}
+
+.price strong {
+  font-weight: 700;
+}
