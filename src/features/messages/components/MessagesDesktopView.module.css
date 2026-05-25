@@ -4,7 +4,7 @@
   min-height: 24rem;
   overflow: hidden;
   border: var(--space-1) solid var(--color-border);
-  border-radius: var(--radius-md);
+  border-radius: var(--radius-10);
 }
 
 .sidebar {

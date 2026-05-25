@@ -13,7 +13,7 @@
   width: min(100%, 58rem);
   max-height: min(42rem, calc(100vh - var(--space-48)));
   overflow: auto;
-  border-radius: var(--radius-md);
+  border-radius: var(--radius-10);
   background: var(--color-white);
   padding: var(--space-24);
   box-shadow: 0 var(--space-16) var(--space-48) rgb(13 13 13 / 18%);

@@ -9,7 +9,7 @@
 .panel {
   width: min(100%, 45rem);
   border: var(--space-1) solid var(--color-gray-light);
-  border-radius: var(--radius-md);
+  border-radius: var(--radius-10);
   background: var(--color-white);
   padding: var(--space-80) var(--space-24);
 }

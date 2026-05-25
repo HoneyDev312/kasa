@@ -3,7 +3,7 @@
   height: 2.5rem;
   align-items: center;
   justify-content: center;
-  border-radius: var(--radius-md);
+  border-radius: var(--radius-10);
   padding: var(--space-10) var(--space-20);
   transition:
     background-color var(--color-primary-dark),

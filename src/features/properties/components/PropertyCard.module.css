@@ -3,7 +3,7 @@
   overflow: hidden;
   width: min(100%, 22.1875rem);
   border: var(--space-1) solid var(--color-border);
-  border-radius: var(--radius-xs);
+  border-radius: var(--radius-10);
   background: var(--color-white);
 }
 
@@ -13,7 +13,7 @@
 
 .media {
   position: relative;
-  aspect-ratio: 355 / 330;
+  aspect-ratio: 355 / 376;
   overflow: hidden;
   background: var(--color-surface-muted);
 }
@@ -30,7 +30,7 @@
   width: var(--space-32);
   height: var(--space-32);
   place-items: center;
-  border-radius: var(--radius-xs);
+  border-radius: var(--radius-6);
   background: var(--color-white);
   color: var(--color-text-secondary);
   box-shadow: var(--shadow-header);
@@ -38,7 +38,7 @@
 
 .content {
   display: grid;
-  min-height: 13.75rem;
+  min-height: 11rem;
   grid-template-rows: auto auto 1fr;
   padding: var(--space-20) var(--space-24) var(--space-24);
 }
