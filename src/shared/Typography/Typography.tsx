@@ -2,7 +2,13 @@ import type { ElementType, ReactNode } from "react";
 import styles from "./Typography.module.css";
 
 type TypographyColor = "primary" | "dark" | "gray";
-type TypographyVariant = "h1" | "regular" | "medium" | "navLink";
+type TypographyVariant =
+  | "h1"
+  | "regular"
+  | "medium"
+  | "navLink"
+  | "mobileLink"
+  | "button";
 type TypographyWeight = "bold" | "medium" | "regular" | "semibold";
 
 type TypographyProps = {

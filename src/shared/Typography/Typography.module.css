@@ -28,6 +28,18 @@
   font-weight: 400;
 }
 
+.mobileLink {
+  font-size: var(--text-xl);
+  line-height: 143%;
+  font-weight: 400;
+}
+
+.button {
+  font-size: var(--text-sm);
+  line-height: 143%;
+  font-weight: 500;
+}
+
 .regular {
   font-weight: 400;
 }

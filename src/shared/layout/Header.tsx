@@ -1,5 +1,8 @@
+"use client";
+
+import { useState } from "react";
 import Link from "next/link";
-import { Icon } from "@/shared";
+import { Icon, Button } from "@/shared";
 import { Logo } from "@/shared/Logo";
 import styles from "./Header.module.css";
 import { Typography } from "../Typography";
@@ -10,6 +13,10 @@ const navigation = [
 ];
 
 export function Header() {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  const closeMenu = () => setIsMenuOpen(false);
+
   return (
     <header className={styles.header}>
       <div className={styles.container}>
@@ -49,10 +56,52 @@ export function Header() {
         <button
           className={styles.menuButton}
           type="button"
-          aria-label="Ouvrir le menu"
+          aria-label={isMenuOpen ? "Fermer le menu" : "Ouvrir le menu"}
+          aria-expanded={isMenuOpen}
+          aria-controls="mobile-navigation"
+          onClick={() => setIsMenuOpen((current) => !current)}
         >
-          <span className={styles.menuIcon} aria-hidden="true" />
+          <Icon
+            name={isMenuOpen ? "close" : "menu"}
+            size="40px"
+            color="black"
+          />
         </button>
+
+        <nav
+          id="mobile-navigation"
+          className={styles.mobileMenu}
+          aria-label="Navigation mobile"
+          hidden={!isMenuOpen}
+        >
+          {navigation.map((item) => (
+            <Link
+              className={styles.mobileLink}
+              href={item.href}
+              key={item.href}
+              onClick={closeMenu}
+            >
+              <Typography variant="mobileLink">{item.label}</Typography>
+            </Link>
+          ))}
+          <Link
+            className={styles.mobileLink}
+            href="/messages"
+            onClick={closeMenu}
+          >
+            <Typography variant="mobileLink">Messagerie</Typography>
+          </Link>
+          <Link
+            className={styles.mobileLink}
+            href="/favoris"
+            onClick={closeMenu}
+          >
+            <Typography variant="mobileLink">Favoris</Typography>
+          </Link>
+          <Button className={styles.mobileAddLink} onClick={() => {}}>
+            Ajouter un logement
+          </Button>
+        </nav>
       </div>
     </header>
   );
