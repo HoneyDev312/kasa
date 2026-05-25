@@ -3,18 +3,18 @@
   position: sticky;
   top: 0;
   z-index: 10;
-  padding-block: 20px;
+  padding-block: var(--space-20);
   justify-content: center;
   background-color: transparent;
 }
 
 .container {
   display: flex;
-  width: 782px;
-  min-height: 56px;
+  width: 48.875rem;
+  min-height: 3.5rem;
   align-items: center;
   justify-content: center;
-  gap: var(--space-6);
+  gap: var(--space-32);
   border-radius: var(--radius-md);
   background-color: var(--color-white);
   box-shadow: var(--shadow-header);
@@ -23,9 +23,9 @@
 .nav {
   display: flex;
   align-items: center;
-  gap: 40px;
+  gap: var(--space-40);
   color: var(--color-text-primary);
-  font-size: 18px;
+  font-size: 1.125rem;
   font-weight: 400;
   white-space: nowrap;
 }
@@ -41,12 +41,12 @@
 .actions {
   display: flex;
   align-items: center;
-  gap: var(--space-2);
+  gap: var(--space-8);
   white-space: nowrap;
 }
 
 .addLink {
-  margin-right: var(--space-3);
+  margin-right: var(--space-12);
   transition: color var(--color-primary-soft);
 }
 
@@ -65,9 +65,9 @@
 }
 
 .separator {
-  width: 2px;
-  height: 8px;
-  border-radius: 999px;
+  width: 0.125rem;
+  height: 0.5rem;
+  border-radius: 62.4375rem;
   background: var(--color-primary);
 }
 
@@ -76,19 +76,19 @@
   display: none;
 }
 
-@media (max-width: 760px) {
+@media (max-width: 47.5rem) {
   .header {
-    padding-block: 0;
+    padding-block: var(--space-0);
   }
 
   .container {
     position: absolute;
     flex-wrap: wrap;
     width: 100%;
-    min-height: 56px;
+    min-height: 3.5rem;
     justify-content: space-between;
     border-radius: 0;
-    padding: 8px 16px;
+    padding: var(--space-8) var(--space-16);
   }
 
   .nav,
@@ -104,7 +104,7 @@
     display: flex;
     width: 100%;
     flex-direction: column;
-    padding-top: 14px;
+    padding-top: var(--space-14);
   }
 
   .mobileMenu[hidden] {
@@ -114,13 +114,13 @@
   .mobileLink {
     display: flex;
     align-items: center;
-    border-top: 1px solid var(--color-gray-light);
-    padding-top: var(--space-5);
-    margin-bottom: var(--space-5);
+    border-top: 0.0625rem solid var(--color-gray-light);
+    padding-top: var(--space-24);
+    margin-bottom: var(--space-24);
   }
 
   .mobileAddLink {
-    margin-top: var(--space-2);
+    margin-top: var(--space-8);
     width: 55%;
   }
 }

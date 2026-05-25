@@ -4,12 +4,12 @@
 }
 
 .lite .image {
-  height: 52px;
+  height: 3.25rem;
   width: auto;
 }
 
 .full .image {
-  height: 40px;
+  height: 2.5rem;
   width: auto;
 }
 
@@ -17,7 +17,7 @@
   display: none;
 }
 
-@media (max-width: 680px) {
+@media (max-width: 42.5rem) {
   .responsive .desktopImage {
     display: none;
   }

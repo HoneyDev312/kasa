@@ -5,8 +5,8 @@
 }
 
 * {
-  margin: 0;
-  padding: 0;
+  margin: var(--space-0);
+  padding: var(--space-0);
 }
 
 html {

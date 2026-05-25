@@ -39,10 +39,10 @@ export function Icon({
       aria-label={label}
       className={iconClassName}
       fill="none"
-      height={height ?? size ?? "16px"}
+      height={height ?? size ?? "1rem"}
       role={label ? "img" : undefined}
       viewBox={icon.viewBox}
-      width={width ?? size ?? "16px"}
+      width={width ?? size ?? "1rem"}
       xmlns="http://www.w3.org/2000/svg"
     >
       <Svg />

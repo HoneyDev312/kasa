@@ -63,7 +63,7 @@ export function Header() {
         >
           <Icon
             name={isMenuOpen ? "close" : "menu"}
-            size="40px"
+            size="2.5rem"
             color="black"
           />
         </button>
