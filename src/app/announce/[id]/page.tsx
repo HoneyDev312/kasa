@@ -24,12 +24,19 @@ export default async function AnnouncePage({ params }: AnnouncePageProps) {
         ← Retour aux annonces
       </NextLink>
 
-      <div className={styles.topLayout}>
-        <PropertyGallery pictures={pictures} title={property.title} />
-        <HostCard host={property.host} rating={property.rating_avg} />
-      </div>
+      <div className={styles.contentLayout}>
+        <div className={styles.galleryArea}>
+          <PropertyGallery pictures={pictures} title={property.title} />
+        </div>
 
-      <PropertyDetails property={property} />
+        <div className={styles.hostArea}>
+          <HostCard host={property.host} rating={property.rating_avg} />
+        </div>
+
+        <div className={styles.detailsArea}>
+          <PropertyDetails property={property} />
+        </div>
+      </div>
     </article>
   );
 }
