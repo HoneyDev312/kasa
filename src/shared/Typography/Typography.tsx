@@ -1,9 +1,11 @@
 import type { ComponentPropsWithoutRef, ElementType, ReactNode } from "react";
 import styles from "./Typography.module.css";
 
-type TypographyColor = "primary" | "dark" | "gray";
+type TypographyColor = "primary" | "dark" | "gray" | "light";
 type TypographyVariant =
   | "h1"
+  | "h2"
+  | "h3"
   | "regular"
   | "medium"
   | "navLink"
@@ -25,7 +27,7 @@ type TypographyProps<TElement extends ElementType = "p"> = {
 >;
 
 export function Typography<TElement extends ElementType = "p">(
-  typographyProps: TypographyProps<TElement>
+  typographyProps: TypographyProps<TElement>,
 ) {
   const {
     as,

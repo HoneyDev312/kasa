@@ -1,7 +1,8 @@
 import Image from "next/image";
 import NextLink from "next/link";
-import { Icon, Typography } from "@/shared";
+import { Typography } from "@/shared";
 import type { PropertySummary } from "../properties.types";
+import { FavoriteButton } from "./FavoriteButton";
 import styles from "./PropertyCard.module.css";
 
 type PropertyCardProps = {
@@ -34,33 +35,27 @@ export function PropertyCard({
         </div>
 
         <div className={styles.content}>
-          <Typography as="h2" className={styles.title} variant="regular">
+          <Typography as="h3" variant="h3">
             {property.title}
           </Typography>
 
           {property.location ? (
-            <Typography className={styles.location} variant="medium">
+            <Typography
+              className={styles.location}
+              variant="regular"
+              color="gray"
+            >
               {property.location}
             </Typography>
           ) : null}
 
-          <Typography className={styles.price} variant="regular">
+          <Typography className={styles.price} variant="regular" color="gray">
             <strong>{price}€</strong> par nuit
           </Typography>
         </div>
       </NextLink>
 
-      <button
-        className={styles.favoriteButton}
-        type="button"
-        aria-label={
-          isFavorite
-            ? "Retirer cette annonce des favoris"
-            : "Ajouter cette annonce aux favoris"
-        }
-      >
-        <Icon name="favoris" color={isFavorite ? "primary" : "grayDark"} />
-      </button>
+      <FavoriteButton isFavorite={isFavorite} />
     </article>
   );
 }

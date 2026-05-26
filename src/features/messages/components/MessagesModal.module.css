@@ -29,7 +29,7 @@
 
 .modalTitle {
   color: var(--color-text-primary);
-  font-size: var(--text-xxl);
+  font-size: var(--text-32);
   font-weight: 700;
   line-height: 1;
 }

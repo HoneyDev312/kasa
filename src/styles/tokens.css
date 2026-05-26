@@ -15,12 +15,12 @@
 
   --header-height: 3.5rem;
 
-  --text-xs: 0.75rem;
-  --text-sm: 0.875rem;
-  --text-md: 1rem;
-  --text-lg: 1.125rem;
-  --text-xl: 1.5rem;
-  --text-xxl: 2rem;
+  --text-12: 0.75rem;
+  --text-14: 0.875rem;
+  --text-16: 1rem;
+  --text-18: 1.125rem;
+  --text-24: 1.5rem;
+  --text-32: 2rem;
 
   --space-0: 0;
   --space-1: 0.0625rem;
@@ -37,6 +37,7 @@
   --space-48: 3rem;
   --space-56: 3.5rem;
   --space-64: 4rem;
+  --space-72: 4.5rem;
   --space-80: 5rem;
 
   --radius-4: 0.25rem;

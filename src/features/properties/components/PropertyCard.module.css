@@ -22,20 +22,6 @@
   object-fit: cover;
 }
 
-.favoriteButton {
-  position: absolute;
-  top: var(--space-16);
-  right: var(--space-16);
-  display: inline-grid;
-  width: var(--space-32);
-  height: var(--space-32);
-  place-items: center;
-  border-radius: var(--radius-6);
-  background: var(--color-white);
-  color: var(--color-text-secondary);
-  box-shadow: var(--shadow-header);
-}
-
 .content {
   display: grid;
   min-height: 11rem;
@@ -43,19 +29,12 @@
   padding: var(--space-20) var(--space-24) var(--space-24);
 }
 
-.title {
-  color: var(--color-text-primary);
-  font-weight: 700;
-}
-
 .location {
   margin-top: var(--space-8);
-  color: var(--color-text-secondary);
 }
 
 .price {
   align-self: end;
-  color: var(--color-text-primary);
 }
 
 .price strong {

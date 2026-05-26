@@ -7,16 +7,9 @@
   border-radius: var(--radius-10);
 }
 
-.title {
-  color: var(--color-text-primary);
-  font-size: var(--text-xl);
-  font-weight: 700;
-}
-
 .intro {
   max-width: 45rem;
   margin-top: var(--space-12);
-  color: var(--color-text-primary);
 }
 
 .steps {
@@ -32,15 +25,10 @@
   align-content: start;
   min-height: 9.375rem;
   padding: var(--space-24);
-  border-radius: var(--radius-4);
+  border-radius: var(--radius-10);
   background: var(--color-primary);
   color: var(--color-white);
   text-align: left;
-}
-
-.stepTitle {
-  color: var(--color-white);
-  font-weight: 700;
 }
 
 .stepText {

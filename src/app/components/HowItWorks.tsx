@@ -22,7 +22,7 @@ const steps = [
 export function HowItWorks() {
   return (
     <section className={styles.section} aria-labelledby="how-title">
-      <Typography as="h2" className={styles.title} id="how-title">
+      <Typography as="h2" variant="h2">
         Comment ça marche ?
       </Typography>
       <Typography className={styles.intro} variant="regular">
@@ -34,7 +34,7 @@ export function HowItWorks() {
       <div className={styles.steps}>
         {steps.map((step) => (
           <article className={styles.step} key={step.title}>
-            <Typography as="h3" className={styles.stepTitle} variant="regular">
+            <Typography as="h3" variant="h3" color="light">
               {step.title}
             </Typography>
             <Typography className={styles.stepText} variant="medium">

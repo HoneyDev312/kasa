@@ -24,7 +24,7 @@
 
 .description {
   color: var(--color-text-primary);
-  font-size: var(--text-sm);
+  font-size: var(--text-14);
   line-height: 1.5;
 }
 
