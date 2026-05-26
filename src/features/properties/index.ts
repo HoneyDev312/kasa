@@ -1,5 +1,5 @@
 export { PropertyCard } from "./components/PropertyCard";
-export { getProperties } from "./properties.services";
+export { getProperties, getPropertyById } from "./properties.services";
 export type {
   PropertyDetails,
   PropertyHost,
