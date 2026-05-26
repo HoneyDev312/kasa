@@ -1,5 +1,6 @@
 .details {
   display: grid;
+  box-sizing: border-box;
   width: min(100%, 40rem);
   gap: var(--space-32);
   padding: var(--space-24);

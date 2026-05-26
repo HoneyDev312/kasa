@@ -1,5 +1,6 @@
 .gallery {
   display: grid;
+  width: 40rem;
   height: 19.5rem;
   grid-template-columns: 2fr 1fr 1fr;
   grid-template-rows: repeat(2, minmax(0, 1fr));
@@ -23,6 +24,7 @@
 
 @media (max-width: 47.5rem) {
   .gallery {
+    width: 100%;
     height: auto;
     grid-template-columns: repeat(4, minmax(0, 1fr));
     grid-template-rows: auto auto;

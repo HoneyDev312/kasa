@@ -1,6 +1,9 @@
 .page {
+  --announce-layout-width: calc(40rem + 18.75rem + var(--space-16));
+
   display: grid;
-  width: min(100% - var(--space-32), 67.5rem);
+  width: var(--announce-layout-width);
+  max-width: calc(100% - var(--space-32));
   gap: var(--space-24);
   margin: 0 auto;
   padding: var(--space-80) 0 var(--space-80);
@@ -17,7 +20,8 @@
 
 .topLayout {
   display: grid;
-  grid-template-columns: minmax(0, 40rem) 18.75rem;
+  width: var(--announce-layout-width);
+  grid-template-columns: 40rem 18.75rem;
   gap: var(--space-16);
   align-items: start;
   padding-top: var(--space-24);
@@ -26,6 +30,8 @@
 
 @media (max-width: 47.5rem) {
   .page {
+    --announce-layout-width: min(100% - var(--space-32), 22.1875rem);
+
     width: min(100% - var(--space-32), 22.1875rem);
     gap: var(--space-16);
     padding: var(--space-72) 0 var(--space-32);
@@ -37,6 +43,8 @@
   }
 
   .topLayout {
+    width: 100%;
+    grid-template-columns: 1fr;
     gap: var(--space-16);
     padding-top: var(--space-0);
     border-top: 0;
