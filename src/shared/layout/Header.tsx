@@ -3,6 +3,7 @@
 import { useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { MessagesLink } from "@/features/messages";
 import { Icon, Link as ButtonLink } from "@/shared";
 import { Logo } from "@/shared/Logo";
 import styles from "./Header.module.css";
@@ -46,13 +47,13 @@ export function Header() {
             <Icon name="favoris" />
           </Link>
           <span className={styles.separator} aria-hidden="true" />
-          <Link
+          <MessagesLink
             className={styles.messageLink}
-            href={{ pathname: "/messages", query: { from: pathname } }}
+            from={pathname}
             aria-label="Messages"
           >
             <Icon name="message" />
-          </Link>
+          </MessagesLink>
         </div>
 
         <button
@@ -86,13 +87,13 @@ export function Header() {
               <Typography variant="mobileLink">{item.label}</Typography>
             </Link>
           ))}
-          <Link
+          <MessagesLink
             className={styles.mobileLink}
-            href={{ pathname: "/messages", query: { from: pathname } }}
+            from={pathname}
             onClick={closeMenu}
           >
             <Typography variant="mobileLink">Messagerie</Typography>
-          </Link>
+          </MessagesLink>
           <Link
             className={styles.mobileLink}
             href="/favorites"

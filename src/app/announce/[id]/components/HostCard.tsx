@@ -1,5 +1,5 @@
 import Image from "next/image";
-import NextLink from "next/link";
+import { MessagesLink } from "@/features/messages";
 import { Button, Typography } from "@/shared";
 import type { PropertyHost } from "@/features/properties";
 import styles from "./HostCard.module.css";
@@ -36,12 +36,12 @@ export function HostCard({ host, messageFrom, rating }: HostCardProps) {
 
       <div className={styles.actions}>
         <Button className={styles.button}>Contacter l&apos;hôte</Button>
-        <NextLink
+        <MessagesLink
           className={styles.messageLink}
-          href={{ pathname: "/messages", query: { from: messageFrom } }}
+          from={messageFrom}
         >
           <Typography variant="button">Envoyer un message</Typography>
-        </NextLink>
+        </MessagesLink>
       </div>
     </aside>
   );
