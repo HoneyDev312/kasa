@@ -8,6 +8,7 @@ const MOBILE_BREAKPOINT_QUERY = "(max-width: 47.5rem)";
 type MessagesLinkProps = {
   children: ReactNode;
   className?: string;
+  conversationId?: string;
   from?: string;
   onClick?: () => void;
   "aria-label"?: string;
@@ -16,13 +17,15 @@ type MessagesLinkProps = {
 export function MessagesLink({
   children,
   className,
+  conversationId,
   from,
   onClick,
   "aria-label": ariaLabel,
 }: MessagesLinkProps) {
+  const pathname = conversationId ? `/messages/${conversationId}` : "/messages";
   const href = from
-    ? { pathname: "/messages", query: { from } }
-    : { pathname: "/messages" };
+    ? { pathname, query: { from } }
+    : { pathname };
 
   const handleClick = (event: MouseEvent<HTMLAnchorElement>) => {
     onClick?.();
@@ -32,7 +35,7 @@ export function MessagesLink({
     }
 
     event.preventDefault();
-    window.location.assign(getMessagesHref(from));
+    window.location.assign(getMessagesHref({ conversationId, from }));
   };
 
   return (
@@ -47,9 +50,16 @@ export function MessagesLink({
   );
 }
 
-function getMessagesHref(from?: string) {
-  if (!from) return "/messages";
+function getMessagesHref({
+  conversationId,
+  from,
+}: {
+  conversationId?: string;
+  from?: string;
+}) {
+  const pathname = conversationId ? `/messages/${conversationId}` : "/messages";
+  if (!from) return pathname;
 
   const params = new URLSearchParams({ from });
-  return `/messages?${params.toString()}`;
+  return `${pathname}?${params.toString()}`;
 }

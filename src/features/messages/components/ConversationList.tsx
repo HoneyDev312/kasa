@@ -2,22 +2,21 @@
 
 import Link from "next/link";
 import type { MouseEvent } from "react";
+import type { ConversationSummary } from "../messages.types";
 import styles from "./ConversationList.module.css";
-
-const conversations = [
-  { id: "1", name: "Camille", preview: "Le logement est-il disponible ?" },
-  { id: "2", name: "Nadia", preview: "Merci pour votre retour." },
-  { id: "3", name: "Thomas", preview: "Je peux arriver vers 18h." },
-];
 
 type ConversationListProps = {
   compact?: boolean;
+  conversations: ConversationSummary[];
   from?: string;
+  selectedConversationId?: string;
 };
 
 export function ConversationList({
   compact = false,
+  conversations,
   from,
+  selectedConversationId,
 }: ConversationListProps) {
   const openConversationPage = (
     event: MouseEvent<HTMLAnchorElement>,
@@ -38,13 +37,25 @@ export function ConversationList({
 
         return (
           <Link
-            className={styles.conversation}
+            className={[
+              styles.conversation,
+              conversation.id === selectedConversationId ? styles.active : "",
+            ].join(" ")}
             href={from ? { pathname: href, query: { from } } : href}
             key={conversation.id}
             onClick={(event) => openConversationPage(event, href)}
           >
-            <span className={styles.name}>{conversation.name}</span>
-            <span className={styles.preview}>{conversation.preview}</span>
+            <span className={styles.avatar} aria-hidden="true" />
+            <span className={styles.content}>
+              <span className={styles.name}>{conversation.name}</span>
+              <span className={styles.preview}>{conversation.preview}</span>
+            </span>
+            <span className={styles.meta}>
+              <span>{conversation.time}</span>
+              {conversation.unread ? (
+                <span className={styles.unread} aria-label="Non lu" />
+              ) : null}
+            </span>
           </Link>
         );
       })}

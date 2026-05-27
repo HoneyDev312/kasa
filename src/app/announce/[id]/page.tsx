@@ -31,6 +31,7 @@ export default async function AnnouncePage({ params }: AnnouncePageProps) {
 
         <div className={styles.hostArea}>
           <HostCard
+            conversationId={id}
             host={property.host}
             messageFrom={`/announce/${id}`}
             rating={property.rating_avg}

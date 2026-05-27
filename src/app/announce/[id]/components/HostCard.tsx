@@ -5,12 +5,18 @@ import type { PropertyHost } from "@/features/properties";
 import styles from "./HostCard.module.css";
 
 type HostCardProps = {
+  conversationId: string;
   host?: PropertyHost;
   messageFrom: string;
   rating?: number | null;
 };
 
-export function HostCard({ host, messageFrom, rating }: HostCardProps) {
+export function HostCard({
+  conversationId,
+  host,
+  messageFrom,
+  rating,
+}: HostCardProps) {
   const hostName = host?.name ?? "Votre hôte";
   const hostPicture = host?.picture ?? "/brand/logo-home.svg";
   const roundedRating = Math.round(rating ?? 3);
@@ -38,6 +44,7 @@ export function HostCard({ host, messageFrom, rating }: HostCardProps) {
         <Button className={styles.button}>Contacter l&apos;hôte</Button>
         <MessagesLink
           className={styles.messageLink}
+          conversationId={conversationId}
           from={messageFrom}
         >
           <Typography variant="button">Envoyer un message</Typography>

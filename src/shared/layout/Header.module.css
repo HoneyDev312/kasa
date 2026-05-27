@@ -78,11 +78,16 @@
 
 @media (max-width: 47.5rem) {
   .header {
+    position: fixed;
+    right: 0;
+    left: 0;
+    height: var(--header-height);
     padding-block: var(--space-0);
+    background-color: var(--color-white);
   }
 
   .container {
-    position: absolute;
+    position: relative;
     flex-wrap: wrap;
     width: 100%;
     height: var(--header-height);

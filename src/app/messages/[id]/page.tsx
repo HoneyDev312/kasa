@@ -1,4 +1,8 @@
-import { ConversationDetail } from "@/features/messages";
+import {
+  ConversationDetail,
+  getMockConversationMessages,
+  MessagesBackLink,
+} from "@/features/messages";
 import styles from "@/features/messages/components/MessagesPage.module.css";
 
 type MessagePageProps = {
@@ -9,10 +13,16 @@ type MessagePageProps = {
 
 export default async function Message({ params }: MessagePageProps) {
   const { id } = await params;
+  const messages = getMockConversationMessages(id);
 
   return (
-    <section className={styles.page}>
-      <ConversationDetail id={id} />
+    <section className={[styles.page, styles.conversationPage].join(" ")}>
+      <header className={styles.pageHeader}>
+        <MessagesBackLink className={styles.backLink} href="/messages">
+          ← Retour
+        </MessagesBackLink>
+      </header>
+      <ConversationDetail id={id} messages={messages} />
     </section>
   );
 }

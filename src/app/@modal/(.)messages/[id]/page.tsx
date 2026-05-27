@@ -1,6 +1,8 @@
 import {
   ConversationDetail,
   getModalCloseHref,
+  getMockConversationMessages,
+  getMockConversations,
   MessagesDesktopView,
   MessagesModal,
 } from "@/features/messages";
@@ -20,11 +22,17 @@ export default async function MessageModalPage({
 }: MessageModalPageProps) {
   const { id } = await params;
   const closeHref = getModalCloseHref(await searchParams);
+  const conversations = getMockConversations();
+  const messages = getMockConversationMessages(id);
 
   return (
     <MessagesModal closeHref={closeHref} title="Messages">
-      <MessagesDesktopView from={closeHref}>
-        <ConversationDetail id={id} />
+      <MessagesDesktopView
+        conversations={conversations}
+        from={closeHref}
+        selectedConversationId={id}
+      >
+        <ConversationDetail id={id} messages={messages} />
       </MessagesDesktopView>
     </MessagesModal>
   );

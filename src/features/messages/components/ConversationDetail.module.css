@@ -1,11 +1,204 @@
 .detail {
   display: grid;
-  gap: var(--space-24);
+  grid-template-rows: minmax(0, 1fr) auto;
+  height: 100%;
 }
 
-.title {
+.thread {
+  display: grid;
+  align-content: start;
+  gap: var(--space-40);
+  overflow: auto;
+  padding: var(--space-56);
+}
+
+.messageRow {
+  display: grid;
+  grid-template-columns: 2.5rem minmax(0, 24rem);
+  gap: var(--space-8);
+  align-items: start;
+  justify-content: start;
+}
+
+.mine {
+  grid-template-columns: minmax(0, 24rem) 2.5rem;
+  justify-content: end;
+}
+
+.avatar {
+  width: 2.5rem;
+  aspect-ratio: 1;
+  border-radius: var(--radius-6);
+  background: var(--color-gray-dark);
+}
+
+.messageContent {
+  display: grid;
+  gap: var(--space-8);
+}
+
+.mine .messageContent {
+  justify-items: end;
+}
+
+.messageMeta {
+  display: inline-flex;
+  gap: var(--space-8);
+  align-items: center;
+  color: var(--color-text-secondary);
+  font-size: var(--text-12);
+}
+
+.bubble {
+  width: fit-content;
+  max-width: 100%;
+  border: var(--space-1) solid rgb(13 13 13 / 7%);
+  border-radius: 0 var(--space-24) var(--space-24) var(--space-24);
+  background: var(--color-white);
   color: var(--color-text-primary);
-  font-size: var(--text-32);
-  font-weight: 700;
-  line-height: 1;
+  font-size: var(--text-14);
+  line-height: 1.35;
+  padding: var(--space-16);
+}
+
+.mine .bubble {
+  border-color: transparent;
+  border-radius: var(--space-24) 0 var(--space-24) var(--space-24);
+  background: var(--color-primary);
+  color: var(--color-white);
+}
+
+.dateSeparator {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  gap: var(--space-12);
+  align-items: center;
+  color: var(--color-text-secondary);
+  font-size: var(--text-12);
+}
+
+.dateSeparator::before,
+.dateSeparator::after {
+  height: var(--space-1);
+  background: rgb(13 13 13 / 34%);
+  content: "";
+}
+
+.composer {
+  position: relative;
+  display: grid;
+  border-top: var(--space-1) solid rgb(13 13 13 / 7%);
+  background: var(--color-white);
+  padding: var(--space-32) var(--space-40);
+}
+
+.textarea {
+  min-height: 8rem;
+  resize: none;
+  border: var(--space-1) solid rgb(13 13 13 / 10%);
+  border-radius: var(--radius-10);
+  color: var(--color-text-primary);
+  font: inherit;
+  font-size: var(--text-16);
+  line-height: 1.5;
+  padding: var(--space-24) 4.5rem var(--space-24) var(--space-24);
+}
+
+.textarea::placeholder {
+  color: var(--color-text-secondary);
+}
+
+.sendButton {
+  position: absolute;
+  right: calc(var(--space-40) + var(--space-20));
+  bottom: calc(var(--space-32) + var(--space-12));
+  display: inline-grid;
+  width: 2.75rem;
+  aspect-ratio: 1;
+  place-items: center;
+  border-radius: var(--radius-6);
+  background: var(--color-primary);
+}
+
+.sendButton:hover {
+  background: var(--color-primary-dark);
+}
+
+.srOnly {
+  position: absolute;
+  width: 0.0625rem;
+  height: 0.0625rem;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+}
+
+@media (max-width: 47.5rem) {
+  .detail {
+    display: block;
+    height: auto;
+    min-height: calc(100vh - (var(--header-height) * 2) - 4.25rem);
+  }
+
+  .thread {
+    gap: var(--space-32);
+    overflow: visible;
+    padding: var(--space-32) var(--space-0);
+  }
+
+  .messageRow {
+    grid-template-columns: 1.5rem minmax(0, 14rem);
+    gap: var(--space-8);
+  }
+
+  .mine {
+    grid-template-columns: minmax(0, 14rem) 1.5rem;
+  }
+
+  .avatar {
+    width: 1.5rem;
+  }
+
+  .messageMeta {
+    gap: var(--space-4);
+    font-size: 0.5rem;
+  }
+
+  .bubble {
+    border-radius: 0 var(--space-16) var(--space-16) var(--space-16);
+    font-size: var(--text-14);
+    line-height: 1.35;
+    padding: var(--space-12);
+  }
+
+  .mine .bubble {
+    border-radius: var(--space-16) 0 var(--space-16) var(--space-16);
+  }
+
+  .dateSeparator {
+    gap: var(--space-8);
+    font-size: 0.5rem;
+  }
+
+  .composer {
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 4;
+    margin-inline: 0;
+    padding: var(--space-20) var(--space-24);
+  }
+
+  .textarea {
+    min-height: 3.75rem;
+    font-size: var(--text-12);
+    padding: var(--space-16) 3.5rem var(--space-16) var(--space-16);
+  }
+
+  .sendButton {
+    right: calc(var(--space-24) + var(--space-12));
+    bottom: calc(var(--space-20) + var(--space-8));
+    width: 2rem;
+  }
 }
