@@ -2,7 +2,7 @@ import Image from "next/image";
 import NextLink from "next/link";
 import { Typography } from "@/shared";
 import type { PropertySummary } from "../properties.types";
-import { FavoriteButton } from "./FavoriteButton";
+import { FavoriteToggle } from "./FavoriteToggle";
 import styles from "./PropertyCard.module.css";
 
 type PropertyCardProps = {
@@ -55,7 +55,7 @@ export function PropertyCard({
         </div>
       </NextLink>
 
-      <FavoriteButton isFavorite={isFavorite} />
+      <FavoriteToggle isFavorite={isFavorite} propertyId={property.id} />
     </article>
   );
 }

@@ -2,12 +2,13 @@
   position: absolute;
   top: var(--space-16);
   right: var(--space-16);
+  z-index: 1;
   display: inline-grid;
   width: 2rem;
   height: 2rem;
   place-items: center;
   border-radius: var(--radius-6);
   background: var(--color-white);
-  color: var(--color-text-secondary);
+  color: var(--color-gray-dark);
   box-shadow: var(--shadow-header);
 }

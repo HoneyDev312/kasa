@@ -4,7 +4,7 @@ import styles from "./FavoriteButton.module.css";
 
 type FavoriteButtonProps = {
   isFavorite?: boolean;
-} & Omit<ButtonHTMLAttributes<HTMLButtonElement>, "children" | "type">;
+} & Omit<ButtonHTMLAttributes<HTMLButtonElement>, "children">;
 
 export function FavoriteButton({
   className = "",
@@ -24,7 +24,7 @@ export function FavoriteButton({
       type="button"
       {...props}
     >
-      <Icon name="favoris" color={isFavorite ? "primary" : "grayDark"} />
+      <Icon name={isFavorite ? "favorisFilled" : "favoris"} />
     </button>
   );
 }

@@ -1,6 +1,7 @@
 export { backIcon } from "./BackIcon";
 export { closeIcon } from "./CloseIcon";
 export { deleteIcon } from "./DeleteIcon";
+export { favorisFilledIcon } from "./FavorisFilledIcon";
 export { favorisIcon } from "./FavorisIcon";
 export { localisationIcon } from "./LocalisationIcon";
 export { menuIcon } from "./MenuIcon";
