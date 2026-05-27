@@ -30,7 +30,11 @@ export default async function AnnouncePage({ params }: AnnouncePageProps) {
         </div>
 
         <div className={styles.hostArea}>
-          <HostCard host={property.host} rating={property.rating_avg} />
+          <HostCard
+            host={property.host}
+            messageFrom={`/announce/${id}`}
+            rating={property.rating_avg}
+          />
         </div>
 
         <div className={styles.detailsArea}>

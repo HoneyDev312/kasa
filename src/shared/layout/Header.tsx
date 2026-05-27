@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, type MouseEvent } from "react";
+import { useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Icon, Link as ButtonLink } from "@/shared";
@@ -18,11 +18,6 @@ export function Header() {
   const pathname = usePathname();
 
   const closeMenu = () => setIsMenuOpen(false);
-  const openMessagesPage = (event: MouseEvent<HTMLAnchorElement>) => {
-    event.preventDefault();
-    closeMenu();
-    window.location.assign("/messages");
-  };
 
   return (
     <header className={styles.header}>
@@ -93,8 +88,8 @@ export function Header() {
           ))}
           <Link
             className={styles.mobileLink}
-            href="/messages"
-            onClick={openMessagesPage}
+            href={{ pathname: "/messages", query: { from: pathname } }}
+            onClick={closeMenu}
           >
             <Typography variant="mobileLink">Messagerie</Typography>
           </Link>

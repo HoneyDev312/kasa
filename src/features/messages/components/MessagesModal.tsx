@@ -26,7 +26,10 @@ export function MessagesModal({
       aria-modal="true"
       onClick={closeModal}
     >
-      <div className={styles.modal} onClick={(event) => event.stopPropagation()}>
+      <div
+        className={styles.modal}
+        onClick={(event) => event.stopPropagation()}
+      >
         <div className={styles.modalHeader}>
           <h2 className={styles.modalTitle}>{title}</h2>
           <button

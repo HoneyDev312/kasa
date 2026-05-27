@@ -6,10 +6,11 @@ import styles from "./HostCard.module.css";
 
 type HostCardProps = {
   host?: PropertyHost;
+  messageFrom: string;
   rating?: number | null;
 };
 
-export function HostCard({ host, rating }: HostCardProps) {
+export function HostCard({ host, messageFrom, rating }: HostCardProps) {
   const hostName = host?.name ?? "Votre hôte";
   const hostPicture = host?.picture ?? "/brand/logo-home.svg";
   const roundedRating = Math.round(rating ?? 3);
@@ -35,7 +36,10 @@ export function HostCard({ host, rating }: HostCardProps) {
 
       <div className={styles.actions}>
         <Button className={styles.button}>Contacter l&apos;hôte</Button>
-        <NextLink className={styles.messageLink} href="/messages">
+        <NextLink
+          className={styles.messageLink}
+          href={{ pathname: "/messages", query: { from: messageFrom } }}
+        >
           <Typography variant="button">Envoyer un message</Typography>
         </NextLink>
       </div>
