@@ -1,5 +1,6 @@
 import styles from "./ConversationDetail.module.css";
-import { Icon } from "@/shared";
+import { Icon, Typography } from "@/shared";
+import { sendMessageAction } from "../messages.actions";
 import type { ConversationMessage } from "../messages.types";
 
 type ConversationDetailProps = {
@@ -8,6 +9,8 @@ type ConversationDetailProps = {
 };
 
 export function ConversationDetail({ id, messages }: ConversationDetailProps) {
+  const sendAction = sendMessageAction.bind(null, id);
+
   return (
     <article className={styles.detail} aria-labelledby={`conversation-${id}`}>
       <h1 className={styles.srOnly} id={`conversation-${id}`}>
@@ -15,6 +18,10 @@ export function ConversationDetail({ id, messages }: ConversationDetailProps) {
       </h1>
 
       <div className={styles.thread}>
+        {messages.length === 0 ? (
+          <Typography variant="regular">Commencez la conversation.</Typography>
+        ) : null}
+
         {messages.map((message) => {
           if ("date" in message) {
             return (
@@ -51,7 +58,7 @@ export function ConversationDetail({ id, messages }: ConversationDetailProps) {
         })}
       </div>
 
-      <form className={styles.composer}>
+      <form action={sendAction} className={styles.composer}>
         <label className={styles.srOnly} htmlFor={`message-${id}`}>
           Envoyer un message
         </label>
@@ -62,7 +69,11 @@ export function ConversationDetail({ id, messages }: ConversationDetailProps) {
           placeholder="Envoyer un message"
           rows={3}
         />
-        <button className={styles.sendButton} type="submit" aria-label="Envoyer">
+        <button
+          className={styles.sendButton}
+          type="submit"
+          aria-label="Envoyer"
+        >
           <Icon name="send" color="white" size="1.1rem" />
         </button>
       </form>

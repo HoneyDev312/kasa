@@ -1,8 +1,15 @@
+import { redirect } from "next/navigation";
+import { getAuthUser } from "@/features/auth/auth.session";
 import {
   ConversationDetail,
-  getMockConversationMessages,
   MessagesBackLink,
 } from "@/features/messages";
+import {
+  getPropertyMessages,
+  toConversationMessages,
+} from "@/features/messages/messages.services";
+import type { ConversationMessage } from "@/features/messages";
+import { isUnauthorizedMessageError } from "@/features/messages/messages.errors";
 import styles from "@/features/messages/components/MessagesPage.module.css";
 
 type MessagePageProps = {
@@ -12,8 +19,24 @@ type MessagePageProps = {
 };
 
 export default async function Message({ params }: MessagePageProps) {
+  const user = await getAuthUser();
+
+  if (!user) {
+    redirect("/login");
+  }
+
   const { id } = await params;
-  const messages = getMockConversationMessages(id);
+  let messages: ConversationMessage[] = [];
+
+  try {
+    const apiMessages = await getPropertyMessages(id);
+    messages = toConversationMessages(apiMessages, user.id);
+  } catch (error) {
+    if (isUnauthorizedMessageError(error)) {
+      redirect("/login");
+    }
+
+  }
 
   return (
     <section className={[styles.page, styles.conversationPage].join(" ")}>

@@ -50,3 +50,10 @@
   font-size: var(--text-14);
   line-height: 1.5;
 }
+
+.emptyList {
+  margin-top: var(--space-32);
+  color: var(--color-text-secondary);
+  font-size: var(--text-14);
+  line-height: 1.5;
+}

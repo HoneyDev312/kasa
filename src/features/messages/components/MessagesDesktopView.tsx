@@ -30,6 +30,9 @@ export function MessagesDesktopView({
           from={from}
           selectedConversationId={selectedConversationId}
         />
+        {conversations.length === 0 ? (
+          <p className={styles.emptyList}>Pas de conversation</p>
+        ) : null}
       </aside>
       <section className={styles.conversationPanel}>
         {children ?? (
