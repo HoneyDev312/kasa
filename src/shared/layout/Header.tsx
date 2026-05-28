@@ -11,7 +11,7 @@ import { Typography } from "../Typography";
 
 const navigation = [
   { href: "/", label: "Accueil" },
-  { href: "/about", label: "About" },
+  { href: "/about", label: "À propos" },
 ];
 
 export function Header() {
