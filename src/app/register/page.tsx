@@ -1,9 +1,12 @@
 import styles from "../page.module.css";
+import { Typography } from "@/shared";
 
 export default function Register() {
   return (
     <section className={styles.container}>
-      <h1>Inscription</h1>
+      <Typography as="h1" variant="h1">
+        Inscription
+      </Typography>
     </section>
   );
 }

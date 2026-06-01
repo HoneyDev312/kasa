@@ -15,6 +15,7 @@ import {
   isUnauthorizedMessageError,
 } from "@/features/messages/messages.errors";
 import styles from "@/features/messages/components/MessagesPage.module.css";
+import { Typography } from "@/shared";
 
 type MessagesModalPageProps = {
   searchParams: Promise<{
@@ -50,7 +51,9 @@ export default async function MessagesModalPage({
     <MessagesModal closeHref={closeHref} title="Messages">
       <MessagesDesktopView conversations={conversations} from={closeHref}>
         {errorMessage ? (
-          <p className={styles.emptyState}>{errorMessage}</p>
+          <Typography className={styles.emptyState} color="dark">
+            {errorMessage}
+          </Typography>
         ) : undefined}
       </MessagesDesktopView>
     </MessagesModal>

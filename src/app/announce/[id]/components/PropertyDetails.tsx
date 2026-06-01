@@ -10,7 +10,12 @@ export function PropertyDetails({ property }: PropertyDetailsProps) {
   return (
     <section className={styles.details} aria-labelledby="property-title">
       <header>
-        <Typography as="h1" className={styles.title} id="property-title">
+        <Typography
+          as="h1"
+          id="property-title"
+          variant="h1"
+          weight="semibold"
+        >
           {property.title}
         </Typography>
 
@@ -23,21 +28,27 @@ export function PropertyDetails({ property }: PropertyDetailsProps) {
       </header>
 
       {property.description ? (
-        <Typography className={styles.description} variant="regular">
+        <Typography variant="regular">
           {property.description}
         </Typography>
       ) : null}
 
       {property.equipments.length ? (
         <div className={styles.group}>
-          <Typography as="h2" className={styles.groupTitle}>
+          <Typography as="h2" variant="regular" weight="bold">
             Équipements
           </Typography>
           <ul className={styles.badges}>
             {property.equipments.map((equipment) => (
-              <li className={styles.badge} key={equipment}>
+              <Typography
+                as="li"
+                className={styles.badge}
+                color="dark"
+                key={equipment}
+                variant="medium"
+              >
                 {equipment}
-              </li>
+              </Typography>
             ))}
           </ul>
         </div>
@@ -45,14 +56,20 @@ export function PropertyDetails({ property }: PropertyDetailsProps) {
 
       {property.tags.length ? (
         <div className={styles.group}>
-          <Typography as="h2" className={styles.groupTitle}>
+          <Typography as="h2" variant="regular" weight="bold">
             Catégorie
           </Typography>
           <ul className={styles.badges} aria-label="Catégories du logement">
             {property.tags.map((tag) => (
-              <li className={styles.badge} key={tag}>
+              <Typography
+                as="li"
+                className={styles.badge}
+                color="dark"
+                key={tag}
+                variant="medium"
+              >
                 {tag}
-              </li>
+              </Typography>
             ))}
           </ul>
         </div>

@@ -8,12 +8,6 @@
   background: var(--color-white);
 }
 
-.title {
-  color: var(--color-text-primary);
-  font-size: var(--text-18);
-  font-weight: 600;
-}
-
 .identity {
   display: grid;
   grid-template-columns: 4rem 1fr auto;
@@ -32,10 +26,6 @@
 
 .picture img {
   object-fit: cover;
-}
-
-.name {
-  color: var(--color-text-primary);
 }
 
 .rating {
@@ -88,10 +78,6 @@
   .card {
     gap: var(--space-20);
     padding: var(--space-20);
-  }
-
-  .title {
-    font-size: var(--text-16);
   }
 
   .identity {

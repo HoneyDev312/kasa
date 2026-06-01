@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import type { MouseEvent } from "react";
+import { Typography } from "@/shared";
 import type { ConversationSummary } from "../messages.types";
 import styles from "./ConversationList.module.css";
 
@@ -47,15 +48,19 @@ export function ConversationList({
           >
             <span className={styles.avatar} aria-hidden="true" />
             <span className={styles.content}>
-              <span className={styles.name}>{conversation.name}</span>
-              <span className={styles.preview}>{conversation.preview}</span>
+              <Typography as="span" variant="h3">
+                {conversation.name}
+              </Typography>
+              <Typography as="span" color="dark" variant="regular">
+                {conversation.preview}
+              </Typography>
             </span>
-            <span className={styles.meta}>
+            <Typography as="span" className={styles.meta} color="dark">
               <span>{conversation.time}</span>
               {conversation.unread ? (
                 <span className={styles.unread} aria-label="Non lu" />
               ) : null}
-            </span>
+            </Typography>
           </Link>
         );
       })}

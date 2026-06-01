@@ -17,7 +17,7 @@ export default async function Favorites() {
   return (
     <section className={styles.page} aria-labelledby="favorites-title">
       <header className={styles.header}>
-        <Typography as="h1" className={styles.title} id="favorites-title">
+        <Typography as="h1" id="favorites-title" variant="h1">
           Vos favoris
         </Typography>
         <Typography className={styles.intro} variant="regular">

@@ -30,10 +30,6 @@
 
 .title {
   margin-top: var(--space-40);
-  color: var(--color-text-primary);
-  font-size: 2.75rem;
-  font-weight: 700;
-  line-height: 1;
 }
 
 .conversationPanel {
@@ -46,14 +42,8 @@
   display: grid;
   height: 100%;
   place-items: center;
-  color: var(--color-text-secondary);
-  font-size: var(--text-14);
-  line-height: 1.5;
 }
 
 .emptyList {
   margin-top: var(--space-32);
-  color: var(--color-text-secondary);
-  font-size: var(--text-14);
-  line-height: 1.5;
 }

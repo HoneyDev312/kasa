@@ -13,13 +13,20 @@ export function ConversationDetail({ id, messages }: ConversationDetailProps) {
 
   return (
     <article className={styles.detail} aria-labelledby={`conversation-${id}`}>
-      <h1 className={styles.srOnly} id={`conversation-${id}`}>
+      <Typography
+        as="h1"
+        className={styles.srOnly}
+        id={`conversation-${id}`}
+        variant="h1"
+      >
         Conversation {id}
-      </h1>
+      </Typography>
 
       <div className={styles.thread}>
         {messages.length === 0 ? (
-          <Typography variant="regular">Commencez la conversation.</Typography>
+          <Typography color="dark" variant="regular">
+            Commencez la conversation.
+          </Typography>
         ) : null}
 
         {messages.map((message) => {
@@ -43,12 +50,18 @@ export function ConversationDetail({ id, messages }: ConversationDetailProps) {
                 <span className={styles.avatar} aria-hidden="true" />
               ) : null}
               <div className={styles.messageContent}>
-                <p className={styles.messageMeta}>
+                <Typography
+                  className={styles.messageMeta}
+                  color="dark"
+                  variant="medium"
+                >
                   {message.author}
                   <span aria-hidden="true">•</span>
                   {message.time}
-                </p>
-                <p className={styles.bubble}>{message.text}</p>
+                </Typography>
+                <Typography className={styles.bubble} variant="regular">
+                  {message.text}
+                </Typography>
               </div>
               {message.mine ? (
                 <span className={styles.avatar} aria-hidden="true" />

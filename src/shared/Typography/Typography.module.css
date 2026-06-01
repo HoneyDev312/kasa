@@ -45,6 +45,11 @@
   font-weight: 500;
 }
 
+.code {
+  font-size: clamp(6rem, 18vw, 12rem);
+  line-height: 0.85;
+}
+
 .label {
   color: var(--color-text-primary);
   font-size: var(--text-14);

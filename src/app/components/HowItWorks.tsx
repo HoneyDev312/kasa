@@ -37,7 +37,11 @@ export function HowItWorks() {
             <Typography as="h3" variant="h3" color="light">
               {step.title}
             </Typography>
-            <Typography className={styles.stepText} variant="medium">
+            <Typography
+              className={styles.stepText}
+              color="light"
+              variant="medium"
+            >
               {step.description}
             </Typography>
           </article>

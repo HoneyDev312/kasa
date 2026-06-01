@@ -2,6 +2,7 @@ import Link from "next/link";
 import { redirect } from "next/navigation";
 import { getAuthUser } from "@/features/auth/auth.session";
 import { ConversationList } from "@/features/messages";
+import { Typography } from "@/shared";
 import {
   getMessages,
   toConversationSummaries,
@@ -40,14 +41,20 @@ export default async function Messages() {
         <Link className={styles.backLink} href="/">
           ← Retour
         </Link>
-        <h1 className={styles.title}>Messages</h1>
+        <Typography as="h1" className={styles.title} variant="h1">
+          Messages
+        </Typography>
       </header>
       {errorMessage ? (
-        <p className={styles.emptyState}>{errorMessage}</p>
+        <Typography className={styles.emptyState} color="dark">
+          {errorMessage}
+        </Typography>
       ) : conversations.length > 0 ? (
         <ConversationList conversations={conversations} />
       ) : (
-        <p className={styles.emptyState}>Aucune conversation pour le moment.</p>
+        <Typography className={styles.emptyState} color="dark">
+          Aucune conversation pour le moment.
+        </Typography>
       )}
     </section>
   );

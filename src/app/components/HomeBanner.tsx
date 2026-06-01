@@ -5,7 +5,7 @@ import styles from "./HomeBanner.module.css";
 export function HomeBanner() {
   return (
     <section className={styles.container} aria-labelledby="home-title">
-      <Typography as="h1" className={styles.title} variant="h1">
+      <Typography as="h1" variant="h1">
         Chez vous, partout et ailleurs
       </Typography>
       <Typography className={styles.intro} variant="regular" color="dark">

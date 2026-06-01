@@ -12,16 +12,9 @@
   text-align: center;
 }
 
-.title {
-  color: var(--color-primary);
-  font-size: var(--text-32);
-  font-weight: 700;
-}
-
 .intro {
   max-width: 37rem;
   margin-top: var(--space-16);
-  color: var(--color-text-primary);
 }
 
 .grid {
@@ -42,10 +35,6 @@
     width: min(100% - var(--space-32), 22.1875rem);
     gap: var(--space-24);
     padding: calc(var(--header-height) + var(--space-32)) 0 var(--space-32);
-  }
-
-  .title {
-    font-size: var(--text-24);
   }
 
   .intro {

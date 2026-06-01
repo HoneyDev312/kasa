@@ -33,7 +33,6 @@
 
 .stepText {
   margin-top: var(--space-12);
-  color: var(--color-white);
 }
 
 @media (max-width: 47.5rem) {

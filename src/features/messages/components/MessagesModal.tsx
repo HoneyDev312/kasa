@@ -2,6 +2,7 @@
 
 import { useRouter } from "next/navigation";
 import type { ReactNode } from "react";
+import { Typography } from "@/shared";
 import styles from "./MessagesModal.module.css";
 
 type MessagesModalProps = {
@@ -29,7 +30,11 @@ export function MessagesModal({
         className={styles.modal}
         onClick={(event) => event.stopPropagation()}
       >
-        {title ? <h2 className={styles.srOnly}>{title}</h2> : null}
+        {title ? (
+          <Typography as="h2" className={styles.srOnly} variant="h2">
+            {title}
+          </Typography>
+        ) : null}
         {children}
       </div>
     </div>

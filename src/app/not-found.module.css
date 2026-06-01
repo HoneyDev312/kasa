@@ -9,38 +9,14 @@
   text-align: center;
 }
 
-.code {
-  color: var(--color-primary);
-  font-size: clamp(6rem, 18vw, 12rem);
-  font-weight: 700;
-  line-height: 0.85;
-}
-
 .content {
   display: grid;
   gap: var(--space-12);
-}
-
-.title {
-  color: var(--color-text-primary);
-  font-size: var(--text-32);
-  font-weight: 700;
-  line-height: 1.15;
-}
-
-.description {
-  color: var(--color-text-secondary);
-  font-size: var(--text-16);
-  line-height: 1.5;
 }
 
 @media (max-width: 47.5rem) {
   .container {
     gap: var(--space-24);
     padding-block: var(--space-80);
-  }
-
-  .title {
-    font-size: var(--text-24);
   }
 }

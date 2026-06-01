@@ -1,5 +1,6 @@
 import type { ReactNode } from "react";
 import Link from "next/link";
+import { Typography } from "@/shared";
 import type { ConversationSummary } from "../messages.types";
 import { ConversationList } from "./ConversationList";
 import styles from "./MessagesDesktopView.module.css";
@@ -23,7 +24,9 @@ export function MessagesDesktopView({
         <Link className={styles.backLink} href={from ?? "/"}>
           ← Retour
         </Link>
-        <h2 className={styles.title}>Messages</h2>
+        <Typography as="h2" className={styles.title} variant="h1">
+          Messages
+        </Typography>
         <ConversationList
           compact
           conversations={conversations}
@@ -31,12 +34,16 @@ export function MessagesDesktopView({
           selectedConversationId={selectedConversationId}
         />
         {conversations.length === 0 ? (
-          <p className={styles.emptyList}>Pas de conversation</p>
+          <Typography className={styles.emptyList} color="dark">
+            Pas de conversation
+          </Typography>
         ) : null}
       </aside>
       <section className={styles.conversationPanel}>
         {children ?? (
-          <p className={styles.emptyState}>Selectionnez une conversation.</p>
+          <Typography className={styles.emptyState} color="dark">
+            Selectionnez une conversation.
+          </Typography>
         )}
       </section>
     </div>

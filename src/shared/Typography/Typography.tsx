@@ -11,6 +11,7 @@ type TypographyVariant =
   | "navLink"
   | "mobileLink"
   | "button"
+  | "code"
   | "label";
 type TypographyWeight = "bold" | "medium" | "regular" | "semibold";
 

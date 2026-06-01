@@ -23,7 +23,7 @@ export function HostCard({
 
   return (
     <aside className={styles.card} aria-labelledby="host-title">
-      <Typography as="h2" className={styles.title} id="host-title">
+      <Typography as="h2" id="host-title" variant="h3" weight="semibold">
         Votre hôte
       </Typography>
 
@@ -31,7 +31,7 @@ export function HostCard({
         <div className={styles.picture}>
           <Image src={hostPicture} alt="" fill sizes="4rem" />
         </div>
-        <Typography className={styles.name} variant="regular">
+        <Typography variant="regular">
           {hostName}
         </Typography>
         <div className={styles.rating} aria-label={`Note ${roundedRating} sur 5`}>
