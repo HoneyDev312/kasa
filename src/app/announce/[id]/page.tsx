@@ -1,7 +1,7 @@
-import NextLink from "next/link";
 import { getPropertyOrNotFound } from "./announce.helpers";
 import { HostCard, PropertyDetails, PropertyGallery } from "./components";
 import styles from "./page.module.css";
+import { BackLink } from "@/shared";
 
 type AnnouncePageProps = {
   params: Promise<{
@@ -20,9 +20,9 @@ export default async function AnnouncePage({ params }: AnnouncePageProps) {
 
   return (
     <article className={styles.page}>
-      <NextLink className={styles.backLink} href="/">
-        ← Retour aux annonces
-      </NextLink>
+      <BackLink className={styles.backLink} href="/">
+        Retour aux annonces
+      </BackLink>
 
       <div className={styles.contentLayout}>
         <div className={styles.galleryArea}>

@@ -1,0 +1,93 @@
+.panel {
+  display: grid;
+  align-content: start;
+  gap: var(--space-12);
+  min-height: 15rem;
+  border-radius: var(--radius-6);
+  background: var(--color-white);
+  padding: var(--space-32) var(--space-48);
+}
+
+.imageFields {
+  display: grid;
+  gap: var(--space-24);
+}
+
+.field {
+  display: grid;
+  gap: var(--space-8);
+}
+
+.inputRow {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 2.75rem;
+  align-items: center;
+  gap: var(--space-16);
+}
+
+.input {
+  width: 100%;
+  min-height: 3rem;
+  border: var(--space-1) solid var(--color-gray-light);
+  border-radius: var(--radius-6);
+  background: var(--color-white);
+  color: var(--color-text-primary);
+  padding: var(--space-10) var(--space-12);
+  font: inherit;
+}
+
+.input:focus {
+  border-color: var(--color-primary);
+  outline: 0.125rem solid color-mix(in srgb, var(--color-primary) 24%, transparent);
+}
+
+.addButton {
+  --plus-button-size: 2.75rem;
+  --plus-icon-size: 1.5em;
+
+  border-radius: var(--radius-6);
+}
+
+.textButton {
+  width: fit-content;
+  color: var(--color-primary);
+  font-size: var(--text-12);
+  font-weight: 500;
+}
+
+.textButton::before {
+  content: "+";
+  margin-right: var(--space-4);
+}
+
+@media (max-width: 64rem) {
+  .panel {
+    padding: var(--space-24);
+  }
+}
+
+@media (max-width: 47.5rem) {
+  .panel {
+    min-height: auto;
+    gap: var(--space-14);
+    padding: var(--space-20);
+  }
+
+  .imageFields {
+    gap: var(--space-16);
+  }
+
+  .inputRow {
+    grid-template-columns: minmax(0, 1fr) 2rem;
+    gap: var(--space-12);
+  }
+
+  .input {
+    min-height: var(--space-40);
+  }
+
+  .addButton {
+    --plus-button-size: 2rem;
+    --plus-icon-size: 1rem;
+  }
+}

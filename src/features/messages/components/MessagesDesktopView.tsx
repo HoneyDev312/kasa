@@ -1,6 +1,5 @@
 import type { ReactNode } from "react";
-import Link from "next/link";
-import { Typography } from "@/shared";
+import { BackLink, Typography } from "@/shared";
 import type { ConversationSummary } from "../messages.types";
 import { ConversationList } from "./ConversationList";
 import styles from "./MessagesDesktopView.module.css";
@@ -21,9 +20,7 @@ export function MessagesDesktopView({
   return (
     <div className={styles.desktopView}>
       <aside className={styles.sidebar}>
-        <Link className={styles.backLink} href={from ?? "/"}>
-          ← Retour
-        </Link>
+        <BackLink className={styles.backLink} href={from ?? "/"} size="large" />
         <Typography as="h2" className={styles.title} variant="h1">
           Messages
         </Typography>

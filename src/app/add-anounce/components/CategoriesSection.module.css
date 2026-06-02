@@ -1,0 +1,125 @@
+.panel {
+  display: grid;
+  align-content: start;
+  gap: var(--space-24);
+  min-height: 15rem;
+  border-radius: var(--radius-6);
+  background: var(--color-white);
+  padding: var(--space-56) var(--space-48);
+}
+
+.panelTitle {
+  color: var(--color-text-primary);
+}
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-8) var(--space-10);
+}
+
+.tag {
+  position: relative;
+  display: inline-flex;
+  min-height: 2.5rem;
+  align-items: center;
+  justify-content: center;
+  border: var(--space-1) solid transparent;
+  border-radius: var(--radius-6);
+  background: var(--color-gray-light);
+  color: var(--color-text-secondary);
+  padding: var(--space-10) var(--space-20);
+}
+
+.tag input {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.tag:has(input:checked) {
+  border-color: var(--color-primary);
+  color: var(--color-primary);
+  background: var(--color-primary-soft);
+}
+
+.customTag {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 2.75rem;
+  align-items: end;
+  gap: var(--space-16);
+}
+
+.field {
+  display: grid;
+  gap: var(--space-8);
+}
+
+.input {
+  width: 100%;
+  min-height: 3rem;
+  border: var(--space-1) solid var(--color-gray-light);
+  border-radius: var(--radius-6);
+  background: var(--color-white);
+  color: var(--color-text-primary);
+  padding: var(--space-10) var(--space-12);
+  font: inherit;
+}
+
+.input:focus {
+  border-color: var(--color-primary);
+  outline: 0.125rem solid color-mix(in srgb, var(--color-primary) 24%, transparent);
+}
+
+.addButton {
+  --plus-button-size: 2.75rem;
+  --plus-icon-size: 1.5em;
+
+  border-radius: var(--radius-6);
+}
+
+.textButton {
+  width: fit-content;
+  color: var(--color-primary);
+  font-size: var(--text-12);
+  font-weight: 500;
+}
+
+.textButton::before {
+  content: "+";
+  margin-right: var(--space-4);
+}
+
+@media (max-width: 64rem) {
+  .panel {
+    padding: var(--space-24);
+  }
+}
+
+@media (max-width: 47.5rem) {
+  .panel {
+    min-height: auto;
+    gap: var(--space-14);
+    padding: var(--space-20);
+  }
+
+  .tag {
+    min-height: 2rem;
+    padding: var(--space-8) var(--space-12);
+  }
+
+  .customTag {
+    grid-template-columns: minmax(0, 1fr) 2rem;
+    gap: var(--space-12);
+  }
+
+  .input {
+    min-height: var(--space-40);
+  }
+
+  .addButton {
+    --plus-button-size: 2rem;
+    --plus-icon-size: 1rem;
+  }
+}

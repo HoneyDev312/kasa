@@ -1,6 +1,5 @@
 export { ConversationDetail } from "./components/ConversationDetail";
 export { ConversationList } from "./components/ConversationList";
-export { MessagesBackLink } from "./components/MessagesBackLink";
 export { MessagesLink } from "./components/MessagesLink";
 export { MessagesDesktopView } from "./components/MessagesDesktopView";
 export { MessagesModal } from "./components/MessagesModal";

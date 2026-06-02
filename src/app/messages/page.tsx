@@ -1,8 +1,7 @@
-import Link from "next/link";
 import { redirect } from "next/navigation";
 import { getAuthUser } from "@/features/auth/auth.session";
 import { ConversationList } from "@/features/messages";
-import { Typography } from "@/shared";
+import { BackLink, Typography } from "@/shared";
 import {
   getMessages,
   toConversationSummaries,
@@ -38,9 +37,7 @@ export default async function Messages() {
   return (
     <section className={styles.page}>
       <header className={styles.pageHeader}>
-        <Link className={styles.backLink} href="/">
-          ← Retour
-        </Link>
+        <BackLink className={styles.backLink} href="/" size="large" />
         <Typography as="h1" className={styles.title} variant="h1">
           Messages
         </Typography>

@@ -1,9 +1,6 @@
 import { redirect } from "next/navigation";
 import { getAuthUser } from "@/features/auth/auth.session";
-import {
-  ConversationDetail,
-  MessagesBackLink,
-} from "@/features/messages";
+import { ConversationDetail } from "@/features/messages";
 import {
   getPropertyMessages,
   toConversationMessages,
@@ -11,6 +8,7 @@ import {
 import type { ConversationMessage } from "@/features/messages";
 import { isUnauthorizedMessageError } from "@/features/messages/messages.errors";
 import styles from "@/features/messages/components/MessagesPage.module.css";
+import { BackLink } from "@/shared";
 
 type MessagePageProps = {
   params: Promise<{
@@ -41,9 +39,7 @@ export default async function Message({ params }: MessagePageProps) {
   return (
     <section className={[styles.page, styles.conversationPage].join(" ")}>
       <header className={styles.pageHeader}>
-        <MessagesBackLink className={styles.backLink} href="/messages">
-          ← Retour
-        </MessagesBackLink>
+        <BackLink className={styles.backLink} href="/messages" reloadDocument />
       </header>
       <ConversationDetail id={id} messages={messages} />
     </section>
