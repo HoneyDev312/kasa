@@ -25,4 +25,13 @@ describe("Button", () => {
     // expect: la fonction passée à `onClick` a bien été appelée une seule fois.
     expect(handleClick).toHaveBeenCalledTimes(1);
   });
+
+  it("utilise le type fourni", () => {
+    render(<Button type="submit">Ajouter</Button>);
+
+    expect(screen.getByRole("button", { name: "Ajouter" })).toHaveAttribute(
+      "type",
+      "submit",
+    );
+  });
 });
