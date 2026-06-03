@@ -1,4 +1,5 @@
 import { apiClient } from "@/lib/apiClient";
+import { isMockMode } from "@/lib/config";
 import type {
   ApiMessage,
   ConversationMessage,
@@ -6,12 +7,24 @@ import type {
 } from "./messages.types";
 
 export async function getMessages() {
+  if (isMockMode()) {
+    const { getMockMessages } = await import("@/mocks/messages");
+
+    return getMockMessages();
+  }
+
   return apiClient.get<ApiMessage[]>("/api/messages", {
     cache: "no-store",
   });
 }
 
 export async function getPropertyMessages(propertyId: string) {
+  if (isMockMode()) {
+    const { getMockPropertyMessages } = await import("@/mocks/messages");
+
+    return getMockPropertyMessages(propertyId);
+  }
+
   return apiClient.get<ApiMessage[]>(
     `/api/properties/${encodeURIComponent(propertyId)}/messages`,
     {
@@ -21,6 +34,12 @@ export async function getPropertyMessages(propertyId: string) {
 }
 
 export async function sendPropertyMessage(propertyId: string, content: string) {
+  if (isMockMode()) {
+    const { sendMockPropertyMessage } = await import("@/mocks/messages");
+
+    return sendMockPropertyMessage(propertyId, content);
+  }
+
   return apiClient.post<ApiMessage>(
     `/api/properties/${encodeURIComponent(propertyId)}/messages`,
     { content }

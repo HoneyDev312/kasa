@@ -24,10 +24,11 @@ async function request<T>(
   { auth = true, body, headers, token, ...options }: RequestOptions = {}
 ): Promise<T> {
   const authToken = token ?? (auth ? await getSessionToken() : undefined);
+  const url = await getRequestUrl(endpoint);
 
   // Tous les appels backend passent par ce wrapper pour centraliser les headers,
   // la sérialisation JSON, l'authentification et la gestion des erreurs.
-  const response = await fetch(`${API_BASE_URL}${endpoint}`, {
+  const response = await fetch(url, {
     ...options,
     body: body === undefined ? undefined : JSON.stringify(body),
     headers: {
@@ -58,6 +59,38 @@ async function request<T>(
   }
 
   return payload as T;
+}
+
+/**
+ * Construit l'URL appelée par le client API.
+ * Si une API externe est configurée, elle est utilisée en priorité. Sinon,
+ * l'application appelle ses propres Route Handlers Next.js, ce qui permet de
+ * déployer le front seul avec les données mockées.
+ */
+async function getRequestUrl(endpoint: string) {
+  // Cas production avec un vrai backend externe.
+  if (API_BASE_URL) {
+    return `${API_BASE_URL}${endpoint}`;
+  }
+
+  // Côté navigateur, une URL relative suffit pour appeler le même domaine.
+  if (typeof window !== "undefined") {
+    return endpoint;
+  }
+
+  // Côté serveur, fetch a besoin d'une URL absolue : on la reconstruit depuis
+  // les headers de la requête courante.
+  const { headers } = await import("next/headers");
+  const headersList = await headers();
+  const host = headersList.get("x-forwarded-host") ?? headersList.get("host");
+  const protocol = headersList.get("x-forwarded-proto") ?? "http";
+
+  // Fallback utile en développement si aucun header de domaine n'est disponible.
+  if (!host) {
+    return `http://localhost:3000${endpoint}`;
+  }
+
+  return `${protocol}://${host}${endpoint}`;
 }
 
 async function parseResponse(response: Response) {

@@ -85,3 +85,30 @@ NEXT_PUBLIC_SITE_URL=http://localhost:3000
 
 `NEXT_PUBLIC_SITE_URL` doit etre remplacee par l'URL publique du site en
 production.
+
+## Deploiement front seul
+
+Pour deployer uniquement le front sans backend, l'application expose des routes
+API mockees directement dans Next.js :
+
+- `GET /api/properties`
+- `GET /api/properties/:id`
+- `GET /api/messages`
+- `POST /auth/login`
+- routes de favoris et de messages associees aux logements
+
+Sur Vercel, laissez `NEXT_PUBLIC_API_URL` vide. Les Server Components appellent
+alors automatiquement les Route Handlers mockes du meme domaine :
+
+```bash
+NEXT_PUBLIC_SITE_URL=https://votre-front.vercel.app
+```
+
+Les logements, favoris, messages et la connexion utilisent des donnees locales
+de demonstration situees dans `src/mocks`.
+
+Si vous souhaitez rebrancher un vrai backend plus tard, renseignez simplement :
+
+```bash
+NEXT_PUBLIC_API_URL=https://url-de-votre-api
+```
