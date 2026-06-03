@@ -4,6 +4,10 @@ import { PlusIconButton, Typography } from "@/shared";
 export function HostSection() {
   return (
     <section className={styles.panel} aria-labelledby="host-section">
+      <Typography as="h2" className="visually-hidden" id="host-section">
+        Informations de l&apos;hôte
+      </Typography>
+
       <div className={styles.field}>
         <Typography as="label" htmlFor="host-name" variant="label">
           Nom de l&apos;hôte

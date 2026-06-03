@@ -22,7 +22,7 @@ const steps = [
 export function HowItWorks() {
   return (
     <section className={styles.section} aria-labelledby="how-title">
-      <Typography as="h2" variant="h2">
+      <Typography as="h2" id="how-title" variant="h2">
         Comment ça marche ?
       </Typography>
       <Typography className={styles.intro} variant="regular">

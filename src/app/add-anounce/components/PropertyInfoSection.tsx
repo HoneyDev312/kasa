@@ -4,6 +4,10 @@ import { Typography } from "@/shared";
 export function PropertyInfoSection() {
   return (
     <section className={styles.panel} aria-labelledby="property-section">
+      <Typography as="h2" className="visually-hidden" id="property-section">
+        Informations du logement
+      </Typography>
+
       <div className={styles.field}>
         <Typography as="label" htmlFor="title" variant="label">
           Titre de la propriété

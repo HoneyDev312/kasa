@@ -15,6 +15,10 @@ const imageFields = [
 export function ImagesSection() {
   return (
     <section className={styles.panel} aria-labelledby="images-section">
+      <Typography as="h2" className="visually-hidden" id="images-section">
+        Images du logement
+      </Typography>
+
       <div className={styles.imageFields}>
         {imageFields.map((field) => (
           <div className={styles.field} key={field.id}>

@@ -1,7 +1,8 @@
 import { getPropertyOrNotFound } from "./announce.helpers";
+import { getPropertyJsonLinkedData } from "./announce.schema";
 import { HostCard, PropertyDetails, PropertyGallery } from "./components";
 import styles from "./page.module.css";
-import { BackLink } from "@/shared";
+import { BackLink, JsonLinkedData } from "@/shared";
 
 type AnnouncePageProps = {
   params: Promise<{
@@ -15,11 +16,13 @@ export default async function AnnouncePage({ params }: AnnouncePageProps) {
   const pictures = property.pictures.length
     ? property.pictures
     : property.cover
-      ? [property.cover]
-      : [];
+    ? [property.cover]
+    : [];
+  const jsonLinkedData = getPropertyJsonLinkedData(property, pictures);
 
   return (
     <article className={styles.page}>
+      <JsonLinkedData data={jsonLinkedData} />
       <BackLink className={styles.backLink} href="/">
         Retour aux annonces
       </BackLink>

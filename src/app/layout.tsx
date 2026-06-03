@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { Footer, Header } from "@/shared/layout";
+import { JsonLinkedData } from "@/shared";
 import "@/styles/globals.css";
+import { getWebsiteJsonLinkedData } from "./schema";
 
 export const metadata: Metadata = {
   title: "Kasa",
@@ -17,6 +19,7 @@ export default function RootLayout({
   return (
     <html lang="fr">
       <body>
+        <JsonLinkedData data={getWebsiteJsonLinkedData()} />
         <div className="page-container">
           <Header />
           <main className="page-main">{children}</main>
