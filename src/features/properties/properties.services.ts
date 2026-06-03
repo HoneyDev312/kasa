@@ -1,5 +1,5 @@
 import { ApiError, apiClient } from "@/lib/apiClient";
-import { isMockMode } from "@/lib/config";
+import { API_BASE_URL, isMockMode } from "@/lib/config";
 import type { PropertyDetails, PropertySummary } from "./properties.types";
 
 type FavoriteMutationResponse = {
@@ -11,7 +11,7 @@ type FavoriteMutationResponse = {
  * L'appel est fait sans authentification pour rester accessible au rendu serveur.
  */
 export async function getProperties() {
-  if (isMockMode()) {
+  if (shouldUseMocks()) {
     const { getMockProperties } = await import("@/mocks/properties");
 
     return getMockProperties();
@@ -28,7 +28,7 @@ export async function getProperties() {
  * L'identifiant est encodé avant d'être injecté dans l'URL de l'API.
  */
 export async function getPropertyById(id: string) {
-  if (isMockMode()) {
+  if (shouldUseMocks()) {
     const { getMockPropertyById } = await import("@/mocks/properties");
 
     return getMockPropertyById(id).then((property) => {
@@ -53,7 +53,7 @@ export async function getPropertyById(id: string) {
  * Récupère les logements favoris d'un utilisateur authentifié.
  */
 export async function getFavoriteProperties(userId: number) {
-  if (isMockMode()) {
+  if (shouldUseMocks()) {
     const { getMockFavoriteProperties } = await import("@/mocks/properties");
 
     return getMockFavoriteProperties();
@@ -71,7 +71,7 @@ export async function getFavoriteProperties(userId: number) {
  * Ajoute un logement aux favoris de l'utilisateur courant.
  */
 export async function addFavoriteProperty(propertyId: string) {
-  if (isMockMode()) {
+  if (shouldUseMocks()) {
     const { addMockFavoriteProperty } = await import("@/mocks/properties");
 
     return addMockFavoriteProperty(propertyId);
@@ -86,7 +86,7 @@ export async function addFavoriteProperty(propertyId: string) {
  * Retire un logement des favoris de l'utilisateur courant.
  */
 export async function removeFavoriteProperty(propertyId: string) {
-  if (isMockMode()) {
+  if (shouldUseMocks()) {
     const { removeMockFavoriteProperty } = await import("@/mocks/properties");
 
     return removeMockFavoriteProperty(propertyId);
@@ -95,4 +95,8 @@ export async function removeFavoriteProperty(propertyId: string) {
   return apiClient.delete<FavoriteMutationResponse>(
     `/api/properties/${encodeURIComponent(propertyId)}/favorite`
   );
+}
+
+function shouldUseMocks() {
+  return isMockMode() || !API_BASE_URL;
 }

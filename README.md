@@ -97,8 +97,8 @@ API mockees directement dans Next.js :
 - `POST /auth/login`
 - routes de favoris et de messages associees aux logements
 
-Sur Vercel, laissez `NEXT_PUBLIC_API_URL` vide. Les Server Components appellent
-alors automatiquement les Route Handlers mockes du meme domaine :
+Sur Vercel, laissez `NEXT_PUBLIC_API_URL` vide. Les services utilisent alors
+directement les donnees mockees du front :
 
 ```bash
 NEXT_PUBLIC_SITE_URL=https://votre-front.vercel.app

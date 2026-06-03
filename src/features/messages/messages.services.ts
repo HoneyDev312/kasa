@@ -1,5 +1,5 @@
 import { apiClient } from "@/lib/apiClient";
-import { isMockMode } from "@/lib/config";
+import { API_BASE_URL, isMockMode } from "@/lib/config";
 import type {
   ApiMessage,
   ConversationMessage,
@@ -7,7 +7,7 @@ import type {
 } from "./messages.types";
 
 export async function getMessages() {
-  if (isMockMode()) {
+  if (shouldUseMocks()) {
     const { getMockMessages } = await import("@/mocks/messages");
 
     return getMockMessages();
@@ -19,7 +19,7 @@ export async function getMessages() {
 }
 
 export async function getPropertyMessages(propertyId: string) {
-  if (isMockMode()) {
+  if (shouldUseMocks()) {
     const { getMockPropertyMessages } = await import("@/mocks/messages");
 
     return getMockPropertyMessages(propertyId);
@@ -34,7 +34,7 @@ export async function getPropertyMessages(propertyId: string) {
 }
 
 export async function sendPropertyMessage(propertyId: string, content: string) {
-  if (isMockMode()) {
+  if (shouldUseMocks()) {
     const { sendMockPropertyMessage } = await import("@/mocks/messages");
 
     return sendMockPropertyMessage(propertyId, content);
@@ -44,6 +44,10 @@ export async function sendPropertyMessage(propertyId: string, content: string) {
     `/api/properties/${encodeURIComponent(propertyId)}/messages`,
     { content }
   );
+}
+
+function shouldUseMocks() {
+  return isMockMode() || !API_BASE_URL;
 }
 
 export function toConversationSummaries(
