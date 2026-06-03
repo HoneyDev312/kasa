@@ -10,6 +10,11 @@ type ButtonProps = {
   variant?: ButtonVariant;
 } & Omit<ButtonHTMLAttributes<HTMLButtonElement>, "className" | "children">;
 
+/**
+ * Bouton partagé de l'application.
+ * Il applique les variantes visuelles communes tout en conservant les attributs
+ * natifs d'un élément `<button>`.
+ */
 export function Button({
   children,
   className = "",

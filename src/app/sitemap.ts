@@ -18,6 +18,11 @@ const publicRoutes: MetadataRoute.Sitemap = [
   },
 ];
 
+/**
+ * Génère le fichier `/sitemap.xml` avec les routes publiques du site.
+ * Les pages privées ou dépendantes d'un utilisateur ne sont pas incluses afin
+ * de limiter le sitemap aux contenus indexables.
+ */
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   // Les annonces sont récupérées depuis l'API pour générer les URLs dynamiques.
   // En cas d'indisponibilité de l'API, le sitemap reste disponible avec les pages fixes.

@@ -4,7 +4,11 @@ import type { JsonLinkedDataValue } from "@/shared/JsonLinkedData";
 
 const siteUrl = SITE_BASE_URL.replace(/\/$/, "");
 
-// Génère les données structurées propres à une fiche logement.
+/**
+ * Génère les données structurées schema.org d'une fiche logement.
+ * Le JSON-LD décrit le logement, son prix, ses équipements, son hôte et le fil
+ * d'Ariane pour aider les moteurs de recherche à comprendre la page.
+ */
 export function getPropertyJsonLinkedData(
   property: PropertyDetails,
   pictures: string[]

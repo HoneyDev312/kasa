@@ -6,6 +6,11 @@ import { login } from "./auth.services";
 import { setAuthToken } from "./auth.session";
 import type { LoginActionState } from "./auth.types";
 
+/**
+ * Traite la soumission du formulaire de connexion.
+ * La fonction valide les champs, stocke le token d'authentification côté
+ * serveur, puis redirige l'utilisateur vers l'accueil en cas de succès.
+ */
 export async function loginAction(
   _state: LoginActionState,
   formData: FormData

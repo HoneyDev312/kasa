@@ -10,6 +10,10 @@ type JsonLinkedDataProps = {
   data: JsonLinkedDataValue;
 };
 
+/**
+ * Injecte des données structurées JSON-LD dans le HTML de la page.
+ * Le remplacement du caractère `<` limite le risque d'injection dans le script.
+ */
 export function JsonLinkedData({ data }: JsonLinkedDataProps) {
   return (
     <script

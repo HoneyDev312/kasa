@@ -9,6 +9,11 @@ type FavoriteToggleProps = {
   propertyId: string;
 };
 
+/**
+ * Gère l'état favori côté client avec une mise à jour optimiste.
+ * La mutation réelle est déléguée à une server action afin de conserver
+ * l'authentification et la revalidation côté serveur.
+ */
 export function FavoriteToggle({
   isFavorite,
   propertyId,

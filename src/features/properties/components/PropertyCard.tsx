@@ -11,6 +11,11 @@ type PropertyCardProps = {
   property: PropertySummary;
 };
 
+/**
+ * Affiche le résumé d'un logement dans une carte cliquable.
+ * La carte reste un composant serveur et délègue uniquement l'interaction de
+ * favori au composant client `FavoriteToggle`.
+ */
 export function PropertyCard({
   className = "",
   isFavorite = false,

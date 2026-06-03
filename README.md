@@ -1,36 +1,87 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Kasa
 
-## Getting Started
+Application Next.js de location immobiliere entre particuliers.
 
-First, run the development server:
+## Commandes
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm run build
+npm run start
+npm run lint
+npm run test
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Architecture
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Le projet utilise l'App Router de Next.js.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- `src/app` contient les routes, layouts, pages et fichiers SEO Next.js.
+- `src/features` contient la logique metier par domaine : auth, proprietes, messages.
+- `src/shared` contient les composants et utilitaires reutilisables.
+- `src/lib` contient la configuration et le client API.
+- `src/styles` contient les styles globaux et les tokens CSS.
 
-## Learn More
+## Rendu serveur et client
 
-To learn more about Next.js, take a look at the following resources:
+Les pages sont rendues cote serveur autant que possible. Les composants client
+sont limites aux zones qui ont besoin d'interaction :
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- formulaire de connexion ;
+- bouton favori ;
+- galerie d'images ;
+- menu mobile ;
+- lien de messagerie avec comportement responsive.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Cette separation permet de reduire le JavaScript envoye au navigateur et
+d'ameliorer le SEO.
 
-## Deploy on Vercel
+## SEO
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Le fichier `src/app/sitemap.ts` genere `/sitemap.xml`.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Le sitemap inclut uniquement les pages publiques et indexables :
+
+- accueil ;
+- page a propos ;
+- fiches logements dynamiques.
+
+Les pages privees ou liees a un utilisateur, comme favoris et messages, ne sont
+pas ajoutees au sitemap.
+
+## Donnees structurees
+
+Les microdonnees schema.org sont injectees en JSON-LD avec le composant
+`JsonLinkedData`.
+
+- `src/app/schema.ts` decrit le site avec `Organization` et `WebSite`.
+- `src/app/announce/[id]/announce.schema.ts` decrit chaque logement avec
+  `Accommodation`, `Offer`, `BreadcrumbList`, `AggregateRating` et `Person`.
+
+Les URLs publiques utilisent `NEXT_PUBLIC_SITE_URL`. En developpement, la valeur
+par defaut est `http://localhost:3000`.
+
+## Documentation du code
+
+La documentation est faite avec JSDoc sur les fonctions et composants qui portent
+de la logique importante :
+
+- services API ;
+- server actions ;
+- sitemap ;
+- microdonnees schema.org ;
+- composants partages ;
+- composants interactifs client.
+
+Les commentaires sont volontairement concentres sur les intentions metier,
+l'accessibilite, le SEO et les choix serveur/client.
+
+## Variables d'environnement
+
+```bash
+NEXT_PUBLIC_API_URL=http://localhost:8000
+NEXT_PUBLIC_SITE_URL=http://localhost:3000
+```
+
+`NEXT_PUBLIC_SITE_URL` doit etre remplacee par l'URL publique du site en
+production.

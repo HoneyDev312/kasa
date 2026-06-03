@@ -8,6 +8,11 @@ type InputProps = {
   label: string;
 } & Omit<InputHTMLAttributes<HTMLInputElement>, "id">;
 
+/**
+ * Champ texte partagé avec label associé.
+ * L'identifiant est obligatoire pour garantir le lien accessible entre le label
+ * et l'input.
+ */
 export function Input({ className = "", id, label, ...props }: InputProps) {
   const classNames = [styles.input, className].filter(Boolean).join(" ");
 

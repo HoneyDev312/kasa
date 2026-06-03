@@ -6,6 +6,11 @@ import { getAuthUser } from "@/features/auth/auth.session";
 import { sendPropertyMessage } from "./messages.services";
 import { isUnauthorizedMessageError } from "./messages.errors";
 
+/**
+ * Envoie un message au propriétaire d'un logement.
+ * La server action vérifie la session, ignore les messages vides et revalide
+ * les pages concernées pour afficher le nouveau message.
+ */
 export async function sendMessageAction(propertyId: string, formData: FormData) {
   const user = await getAuthUser();
 

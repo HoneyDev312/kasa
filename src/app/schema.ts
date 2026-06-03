@@ -3,7 +3,11 @@ import type { JsonLinkedDataValue } from "@/shared/JsonLinkedData";
 
 const siteUrl = SITE_BASE_URL.replace(/\/$/, "");
 
-// Données structurées globales présentes sur toutes les pages du site.
+/**
+ * Génère les données structurées globales du site.
+ * Elles décrivent la marque Kasa et le site web dans un format compris par
+ * les moteurs de recherche.
+ */
 export function getWebsiteJsonLinkedData(): JsonLinkedDataValue {
   return {
     "@context": "https://schema.org",

@@ -16,6 +16,11 @@ type BackLinkProps = {
   size?: BackLinkSize;
 };
 
+/**
+ * Lien de retour réutilisable avec icône.
+ * L'option `reloadDocument` force une navigation complète quand la route doit
+ * sortir d'un contexte intercepté ou réinitialiser l'état client.
+ */
 export function BackLink({
   children = "Retour",
   className = "",

@@ -14,6 +14,11 @@ type MessagesLinkProps = {
   "aria-label"?: string;
 };
 
+/**
+ * Lien vers la messagerie avec un comportement adapté au viewport.
+ * Sur desktop, la navigation Next peut ouvrir la route interceptée en modal ;
+ * sur mobile, une navigation complète est forcée vers la page messages.
+ */
 export function MessagesLink({
   children,
   className,
