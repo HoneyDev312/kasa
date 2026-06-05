@@ -84,6 +84,7 @@
     height: var(--header-height);
     padding-block: var(--space-0);
     background-color: var(--color-white);
+    z-index: 99;
   }
 
   .container {
